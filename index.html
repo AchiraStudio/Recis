@@ -9,6 +9,90 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body.light-mode {
+            background: #E2F3FD;
+        }
+        body.dark-mode {
+            background: #1b2327;
+        }
+        .header .nav.scrolled.light-mode {
+            background: #377ba1;
+            color: rgb(255, 250, 250);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+        .header .nav.scrolled.dark-mode {
+            background: #0f1d24;
+            color: rgb(255, 250, 250);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+        .slide-1.light-mode {
+            background: #E2F3FD;
+        }
+        .slide-1.dark-mode {
+            background: #1b2327;
+        }
+        .slide-2.light-mode {
+            background: #E2F3FD;
+        }
+        .slide-2.dark-mode {
+            background: #1b2327;
+        }
+        .slide-3.light-mode {
+            background: #E2F3FD;
+        }
+        .slide-3.dark-mode {
+            background: #1b2327;
+        }
+        .main.light-mode {
+            background: #6eb1d6;
+        }
+        .main.dark-mode {
+            background: #05202f;
+        }
+        .event.light-mode {
+            background: #e6e1dd;
+        }
+        .event.dark-mode {
+            background: #021632;
+        }
+        .about.light-mode {
+            background: #6eb1d6;
+        }
+        .about.dark-mode {
+            background: #1e292f;
+        }
+        .about-item.light-mode {
+            background: #89cef1cc;
+        }
+        .about-item.dark-mode {
+            background: #0a0448cc;
+        }
+        .crew.light-mode {
+            background: #6eb1d6;
+        }
+        .crew.dark-mode {
+            background: #021632;
+        }
+        .crew h1.light-mode {
+            color: #021632;
+        }
+        .crew h1.dark-mode {
+            color: #d2dfe6;
+        }
+        .navbar.light-mode {
+            background-color: rgb(213, 202, 202);
+        }
+        .navbar.dark-mode {
+            background-color: rgb(31, 33, 54);
+        }
+        .nav-item.light-mode {
+            color: #757575;
+        }
+        .nav-item.dark-mode {
+            color: #c4c6d0;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -61,22 +145,11 @@
                         <h1>Welcome To RSHS</h1>
                         <p class="quotes"></p>
                         <div class="cta-buttons">
-                            <a href="#about" class="primary-btn">Learn More</a>
-                            <!-- <a href="#" class="secondary-btn">Join Us</a> -->
+                            <a href="#about" class="primary-btn">SCROLL GES!</a>
+                            <a class="secondary-btn" onclick="toggleMode()">Dark Mode</a>
                         </div>
-                    </div>
-                    <div class="hero-visuals">
-                        <div class="visual-circle main-circle">
-                            <div class="circle-content"></div>
-                        </div>
-                        <div class="visual-circle accent-circle"></div>
-                        <div class="decoration-element"></div>
                     </div>
                 </div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
             <div class="square"></div>
             <div class="circle"></div>
             <div class="square"></div>
@@ -206,19 +279,7 @@
             <div class="circle"></div>
             <div class="square"></div>
             <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
         </div>
-        <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
     </section>
     
 
@@ -250,12 +311,6 @@
                 </div>
             </div>
         </div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
             <div class="square"></div>
             <div class="circle"></div>
             <div class="square"></div>
@@ -655,12 +710,6 @@
                 // Show the corresponding crew group
                 const tabId = tab.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
-    
-                // Change the background color of the crew element to a random color
-                const crewElement = document.querySelector('.crew');
-                if (crewElement) {
-                    crewElement.style.backgroundColor = getRandomColor();
-                }
             });
         });
     
@@ -783,5 +832,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
      </script>
+     <!-- AutoScroll -->
+     <script>
+/// Get all the radio buttons
+const slides = document.querySelectorAll('input[name="slider"]');
+
+// Function to automatically switch slides
+function autoSlide() {
+  let currentSlide = document.querySelector('input[name="slider"]:checked');
+  let currentIndex = Array.from(slides).indexOf(currentSlide);
+
+  // Calculate the next slide index, looping back to 0 if we reach the end
+  let nextIndex = (currentIndex + 1) % slides.length;
+
+  // Set the next radio button as checked to move to the next slide
+  slides[nextIndex].checked = true;
+}
+
+// Set interval to auto-scroll every 3 seconds (3000 milliseconds)
+setInterval(autoSlide, 4500);
+     </script>
+     <script src="dark-light.js"></script>
 </body>
 </html>

@@ -93,7 +93,7 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .header .nav .logo {
-  color: #1b5886;
+  color: #ccd5dd;
   font-weight: 900;
   font-size: 3.1rem;
   margin-left: 4rem;
@@ -107,7 +107,7 @@ scrollbar-width: none;  /* Firefox */
 .header .nav nav a {
   position: relative;   
   margin-left: 40px;
-  color: #1b5886;
+  color: #ccd5dd;
   font-size: 1.5rem;
   transition: .4s all;
 }
@@ -1199,7 +1199,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 
 /* About Section */
 .about {
-background: #5293bb;
+background: #6eb1d6;
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
