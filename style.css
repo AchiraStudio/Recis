@@ -1896,6 +1896,7 @@ color: #E2F3FD;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 10;
   }
 
   .quotes {
@@ -1981,28 +1982,6 @@ color: #E2F3FD;
     z-index: 3;
   }
 
-  #one-circle {
-    top: 0;
-    right: 0;
-    width: 220px;
-    height: 220px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    translate: 50px -50px;
-  }
-
-  #two-circle {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    top: 0;
-    left: 0;
-    translate: 43px 120px;
-    width: 150px;
-    height: 150px;
-  }
-
   .top {
     margin: 0;
     padding: 0;
@@ -2025,6 +2004,11 @@ color: #E2F3FD;
   .top p {
     font-size: 1.15rem;
     padding: 5px;
+  }
+
+  .hero-visuals {
+    position: absolute;
+    z-index: 1;
   }
 
   /* Slide 2 */
@@ -2326,6 +2310,48 @@ color: #E2F3FD;
     align-items: center;
     flex-direction: column;
   }
+
+  /* Visual Elements */
+
+.visual-circle {
+  border-radius: 50%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.main-circle {
+  top: 50%;
+  background: url(assets/main/sma.jpg) no-repeat center center;
+  z-index: 3;
+  animation: float 6s ease-in-out infinite;
+  translate: 100px;
+  width: 150px;
+  height: 150px;
+}
+
+.accent-circle {
+  right: 50px;
+  top: 20%;
+  background: url(assets/Photoshoot\ OSIS\ 24-25/Depan\ Kapel/Ketua\ Wakil\ OSIS/IMG_6378.JPG) no-repeat center bottom;
+  background-size: cover;
+  z-index: 2;
+  animation: float 4s ease-in-out 1s infinite;
+}
+
+.decoration-element {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-color: transparent;
+  border-radius: 50%;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
 }
 
 /* Android-style bottom navigation bar */
