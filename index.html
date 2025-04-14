@@ -7,21 +7,31 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar">
-        <img src="assets/recis.png" alt="" id="recis">
-        <div class="nav-android">
-            <a href="#home">Home</a>
-            <a href="#main">Timeline</a>
-            <a href="#about">About Us</a>
-            <a href="#crew">Our Crew</a>
-        </div>    
-    </div>
+    <nav class="navbar">
+        <a href="#home" class="nav-item active">
+            <div class="nav-icon"><img src="assets/main/home.png" alt=""></div>
+            <span>Home</span>
+        </a>
+        <a href="#main" class="nav-item">
+            <div class="nav-icon"><img src="assets/main/timeline.png" alt=""></div>
+            <span>Timeline</span>
+        </a>
+        <a href="#about" class="nav-item">
+            <div class="nav-icon"><img src="assets/main/info.png" alt=""></div>
+            <span>About Us</span>
+        </a>
+        <a href="#crew" class="nav-item">
+            <div class="nav-icon"><img src="assets/main/crew.png" alt=""></div>
+            <span>Our Crew</span>
+        </a>
+    </nav>
     <section class="header" id="home">    
         <header class="nav" id="nav">
             <a href="#home" class="logo">R-SHS</a>
-
             <nav>
                 <a href="#main">Timeline</a>
                 <a href="#about">About Us</a>
@@ -33,45 +43,105 @@
       <div class="css-slider-wrapper">
         <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
         <input type="radio" name="slider" class="slide-radio2" id="slider_2">
+        <input type="radio" name="slider" class="slide-radio3" id="slider_3">
   
         <!-- Slider Pagination -->
         <div class="slider-pagination">
           <label for="slider_1" class="page1"></label>
           <label for="slider_2" class="page2"></label>
+          <label for="slider_3" class="page3"></label>
         </div>
   
         <!-- Main Slide -->
         <div class="slider slide-1">
           <div class="slider-content">
-            <div id="text">
-                <div class="text">
-                    <h1>Welcome To Osis</h1>
-                    <p class="quotes"></p>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Welcome To Osis</h1>
+                        <p class="quotes"></p>
+                        <div class="cta-buttons">
+                            <a href="#" class="primary-btn">Learn More</a>
+                            <!-- <a href="#" class="secondary-btn">Join Us</a> -->
+                        </div>
+                    </div>
+                    <div class="hero-visuals">
+                        <div class="visual-circle main-circle">
+                            <div class="circle-content"></div>
+                        </div>
+                        <div class="visual-circle accent-circle"></div>
+                        <div class="decoration-element"></div>
+                    </div>
                 </div>
-                <div class="bg-text"></div>
+            <div class="square"></div>
+            <div class="circle"></div>
+            <div class="square"></div>
+            <div class="circle"></div>
+            <div class="square"></div>
+            <div class="circle"></div>
+            <div class="square"></div>
+            <div class="circle"></div>
+            <div class="square"></div>
+            <div class="circle"></div>
             </div>
-            <div id="pics">
-                <div class="sma" id="sma">
-                    <div class="circles" id="one-circle"></div>
-                    <div class="circles" id="two-circle"></div>
-                </div>
-            </div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
-            <div class="square"></div>
-            <div class="circle"></div>
           </div>
         </div>
   
         <!-- Slider #2 -->
-        <div class="slider slide-2">
-          <div class="slider-content">
-            <h1>Slither Sweetheart</h1>
-          </div>
+        <!-- Christmas Slider -->
+        <div class="slider slide-2" style="background: linear-gradient(rgba(0,0,0,0.2), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')) center/cover;">
+            <div class="slider-content christmas-theme">
+                <!-- Animated Snow Background -->
+                <div class="snowfall">
+                    <div class="snowflake">❄</div>
+                    <div class="snowflake">❅</div>
+                    <div class="snowflake">❆</div>
+                    <div class="snowflake">❄</div>
+                    <div class="snowflake">❅</div>
+                </div>
+            
+                <!-- Cute Christmas Elements -->
+                <div class="christmas-elements">
+                    <div class="gift gift-1">🎁</div>
+                    <div class="gift gift-2">🎁</div>
+                    <div class="snowman">⛄</div>
+                    <div class="christmas-tree">🎄</div>
+                </div>
+            
+                <!-- Main Content -->
+                <h1 class="christmas-title">Jingle Joyce & Christmas Charity</h1>
+                <p class="christmas-subtitle">Spread holiday cheer with our festive events!</p>
+            
+                <!-- Animated Button -->
+                <div class="button-slider christmas-btn" onclick="window.open('events/christmas.html', '_blank')">
+                    <span class="btn-text">Join the Fun!</span>
+                    <span class="santa-hat">🎅</span>
+                    <div class="sparkles">✨✨✨</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider #3 -->
+        <!-- Valentine's Slider -->
+        <div class="slider slide-3">
+            <div class="slider-content">
+                <!-- Floating hearts decoration -->
+                <div class="hearts">
+                    <div class="heart">❤</div>
+                    <div class="heart">❤</div>
+                    <div class="heart">❤</div>
+                    <div class="heart">❤</div>
+                    <div class="heart">❤</div>
+                </div>
+                
+                <h1 class="valentine-title">Slither Sweetheart</h1>
+                <p class="valentine-subtitle">Find your perfect match this Valentine's Day</p>
+                
+                <div class="button-slider valentine-btn" onclick="window.open('events/valentine.html', '_blank')">
+                    <h1>Take Me There! ❤</h1>
+                    <div class="heart-pulse"></div>
+                </div>
+            </div>
         </div>
       </div>
     </section>
@@ -180,7 +250,7 @@
                 </div>
             </div>
         </div>
-        <div class="square"></div>
+            <div class="square"></div>
             <div class="circle"></div>
             <div class="square"></div>
             <div class="circle"></div>
@@ -197,229 +267,160 @@
     </section>
 
     <section class="crew" id="crew">
-      <div class="crew-content">
-          <h2>Meet Our Crew</h2>
-          <p>Our dedicated team of educators and staff are committed to your success.</p>
-          
-          <!-- Division Tabs -->
-          <div class="crew-tabs">
-              <div class="tab active" data-tab="division1">Inti</div>
-              <div class="tab" data-tab="division2">Spiritual</div>
-              <div class="tab" data-tab="division3">Edutech</div>
-              <div class="tab" data-tab="division4">Humas</div>
-              <div class="tab" data-tab="division5">Finance</div>
-              <div class="tab" data-tab="division6">Event</div>
-              <div class="tab" data-tab="division7">Arts</div>        
-          </div>
-  
-          <!-- Crew Members -->
-          <div class="crew-list">
-            <div class="crew-group active" id="division1">
-                <div class="crew-item first">
-                    <div class="pfp">
-                        <img src="assets/main/pfp/inti/ghe.jpg" alt="1">
-                        <img src="assets/main/pfp/inti/eme.jpg" alt="2">
-                    </div>
-                    <h3>Gabriel & Amel</h3>
-                    <p>Ketua & Wakil Ketua Osis</p>
-                </div>
-                <div class="crew-item second">
-                    <div class="pfp">
-                        <img src="assets/main/pfp/inti/chelsea.jpg" alt="1">
-                        <img src="assets/main/pfp/inti/joshua.jpg" alt="2">
-                    </div>
-                    <h3>Chelsea & Joshua</h3>
-                    <p>Sekretaris</p>
-                </div>
-                <div class="crew-item third">
-                    <div class="pfp">
-                        <img src="assets/main/pfp/inti/eldy.jpg" alt="1">
-                        <img src="assets/main/pfp/inti/kirana.jpg" alt="2">
-                    </div>
-                    <h3>Eldy & Kirana</h3>
-                    <p>Bendahara</p>
-                </div>
+        <div class="crew-content">
+            <h2>Meet Our Crew</h2>
+            <p>Our dedicated team of educators and staff are committed to your success.</p>
+            
+            <!-- Division Tabs -->
+            <div class="crew-tabs">
+                <div class="tab active" data-tab="division1">Inti</div>
+                <div class="tab" data-tab="division2">Spiritual</div>
+                <div class="tab" data-tab="division3">Edutech</div>
+                <div class="tab" data-tab="division4">Humas</div>
+                <div class="tab" data-tab="division5">Finance</div>
+                <div class="tab" data-tab="division6">Event</div>
+                <div class="tab" data-tab="division7">Arts</div>        
             </div>
-            <div class="crew-group" id="division2">
+    
+            <!-- Crew Members -->
+            <div class="crew-list">
+              <div class="crew-group active" id="division1">
+                  <div class="crew-item first">
+                      <div class="pfp">
+                          <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Ketua Wakil OSIS/IMG_6374.JPG" alt="1">
+                      </div>
+                      <div class="text-crew">
+                        <h3>Gabriel & Amel</h3>
+                        <p>Ketua & Wakil Ketua Osis</p>
+                      </div>
+                  </div>
+                  <div class="crew-item second">
+                      <div class="pfp">
+                          <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Sekretaris/DSC_0034.JPG" alt="1">
+                      </div>
+                      <div class="text-crew">
+                        <h3>Chelsea & Joshua</h3>
+                      <p>Sekretaris</p>
+                      </div>
+                  </div>
+                  <div class="crew-item">
+                      <div class="pfp">
+                          <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Bendahara/IMG_6383.JPG" alt="1">
+                      </div>
+                      <div class="text-crew">
+                        <h3>Eldy & Kirana</h3>
+                      <p>Bendahara</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="crew-group" id="division2">
+                  <div class="crew-item">
+                      <div class="pfp">
+                          <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDep Spiritual/IMG_6364.JPG" alt="1">
+                      </div>
+                      <div class="text-crew">
+                        <h3>Michael & Jason Yovino</h3>
+                      <p>Ketua & Wakil Departemen Spiritual</p>
+                      </div>
+                  </div>
+              </div> 
+  
+              <div class="crew-group" id="division3">
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="assets/main/pfp/spiritual cropped/michael.JPG" alt="1">
-                        <img src="assets/main/pfp/spiritual cropped/jason.JPG" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Perpus/KaWaDep Edutech/DSC06264.JPG" alt="1">
                     </div>
-                    <h3>Michael Benito Simanjuntak & Jason Yovino</h3>
-                    <p>Ketua & Wakil Departemen Spiritual</p>
+                    <div class="text-crew">
+                        <h3>Bedun & Nicholas</h3>
+                        <p>Ketua & Wakil Departemen Edutech</p>
+                    </div>
                 </div>
-            </div> 
-            <div class="crew-group" id="division3">
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="assets/main/pfp/edutech/Jason.jpg" alt="1">
-                        <img src="assets/main/pfp/edutech/nicholas.jpg" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Perpus/Akademik IPA/DSC06152.JPG" alt="1">
                     </div>
-                    <h3>Jason Rafael Waruna & Nicholas Cahyadi</h3>
-                    <p>Ketua & Wakil Departemen Edutech</p>
+                    <div class="text-crew">
+                        <h3>Kwan & Tabita</h3>
+                        <p>Ketua & Wakil Akademik IPA (Divisi)</p>
+                    </div>
                 </div>
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="assets/main/pfp/edutech/kendrick.jpg" alt="1">
-                        <img src="assets/main/pfp/edutech/tabita.jpg" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Perpus/Akademik IPS/DSC06200.JPG" alt="1">
                     </div>
-                    <h3>Kendrick Matthew Kwan & Tabita Sirait</h3>
-                    <p>Ketua & Wakil Akademik IPA (Divisi)</p>
+                    <div class="text-crew">
+                        <h3>Richelle & Maria</h3>
+                        <p>Ketua & Wakil Akademik IPS (Divisi)</p>
+                    </div>
                 </div>
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="assets/main/pfp/edutech/richelle.jpg" alt="1">
-                        <img src="assets/main/pfp/edutech/maria.jpg" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Perpus/Multimedia/DSC06087.JPG" alt="1">
                     </div>
-                    <h3>Richelle Cecillia Rupawan & Maria Gracia Easter</h3>
-                    <p>Ketua & Wakil Akademik IPS (Divisi)</p>
-                </div>
-                <div class="crew-item">
-                    <div class="pfp">
-                        <img src="assets/main/pfp/edutech/leonathan.jpg" alt="1">
-                        <img src="assets/main/pfp/edutech/andrew.jpg" alt="2">
+                    <div class="text-crew">
+                        <h3>Leonathan & Andrew</h3>
+                        <p>Ketua & Wakil Multimedia (Divisi)</p>
                     </div>
-                    <h3>Leonathan Alfadion Suteja & Andrew Nathaniel</h3>
-                    <p>Ketua & Wakil Multimedia (Divisi)</p>
                 </div>
             </div>
             
             <div class="crew-group" id="division4">
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/KaWaDep Humas/DSC_0027.JPG" alt="1">
                     </div>
-                    <h3>Leora Ataya Lilinita Ginting & Moses Kelengta Putra Immanuel Sembiring</h3>
-                    <p>Ketua & Wakil Departemen Humas</p>
+                    <div class="text-crew">
+                        <h3>Leora & Moses</h3>
+                        <p>Ketua & Wakil Departemen Humas</p>
+                    </div>
                 </div>
                 <h1>Divisi Publikasi</h1>
                 <div id="publikasi">
                     <div class="crew-item">
                         <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
+                            <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Publikasi/DSC_0005.JPG" alt="1">
                         </div>
-                        <h3>Gabriella Rizky Trisatiti & Belicia Anabel Renata</h3>
-                        <p>Ketua & Wakil Publikasi (Divisi)</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
+                        <div class="text-crew">
+                            <h3>Anggota Divisi</h3>
+                            <p>Publikasi</p>
                         </div>
-                        <h3>Keysha Putri Cecilia Nababan</h3>
-                        <p>Anggota Publikasi</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Lovelly Michella Thandraatmjadja</h3>
-                        <p>Anggota Publikasi</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Wayan Shira Shista Shambhala</h3>
-                        <p>Anggota Publikasi</p>
                     </div>
                 </div>
                 <h1>Divisi Sosial Lingkungan</h1>
                 <div id="lingkungan">
                     <div class="crew-item">
                         <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
+                            <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Sosling/DSC_0013.JPG" alt="1">
                         </div>
-                        <h3>Caroline Ginamora Ginting & Jonathan Dji</h3>
-                        <p>Ketua & Wakil Sosial Lingkungan (Divisi)</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
+                        <div class="text-crew">
+                            <h3>Anggota Divisi</h3>
+                            <p>Sosial Lingkungan</p>
                         </div>
-                        <h3>Sherafine Tananta Suryawan</h3>
-                        <p>Anggota Lingkungan</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Sheryl Evelyn Laionel</h3>
-                        <p>Anggota Lingkungan</p>
                     </div>
                 </div>
                 <h1>Divisi Keamanan</h1>
                 <div id="keamanan">
                     <div class="crew-item">
                         <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
+                            <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/Keamanan/DSC_0001.JPG" alt="1">
                         </div>
-                        <h3>Gerald Saputra & Zyevella Agnesia Lie</h3>
-                        <p>Ketua & Wakil Keamanan (Divisi)</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
+                        <div class="text-crew">
+                            <h3>Anggota Divisi</h3>
+                            <p>Keamanan</p>
                         </div>
-                        <h3>Jason Raphael Haniel Pardede</h3>
-                        <p>Anggota Keamanan</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Willy Ta Moan</h3>
-                        <p>Anggota Keamanan</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Christian Hill</h3>
-                        <p>Anggota Keamanan</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Nicodemus Darendra</h3>
-                        <p>Anggota Keamanan</p>
                     </div>
                 </div>
                 <h1>Perlengkapan</h1>
                 <div id="perlengkapan">
                     <div class="crew-item">
                         <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
+                            <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/Perlengkapan/DSC_0007.JPG" alt="1">
                         </div>
-                        <h3>Vincentius Hansel Rajendra Prawira & Enjel Ra'bung</h3>
-                        <p>Ketua & Wakil Perlengkapan (Divisi)</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
+                        <div class="text-crew">
+                            <h3>Anggota Divisi</h3>
+                            <p>Perlengkapan</p>
                         </div>
-                        <h3>Maria Putri Angel Samosir</h3>
-                        <p>Anggota Perlengkapan</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Natanael Christian Mahardhika</h3>
-                        <p>Anggota Perlengkapan</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Denzelinky Navarro</h3>
-                        <p>Anggota Perlengkapan</p>
                     </div>
                 </div>
             </div>
@@ -427,235 +428,133 @@
             <div class="crew-group" id="division5">
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="assets/main/pfp/finance cropped/vivi.JPG" alt="1">
-                        <img src="assets/main/pfp/finance cropped/lauren.JPG" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDepFinance/DSC_0001.JPG" alt="1">
                     </div>
-                    <h3>Vivian Foe & Laureen Angelica Setiawan</h3>
-                    <p>Ketua & Wakil Departemen Finance</p>
+                    <div class="text-crew">
+                        <h3>Vivian & Laureen</h3>
+                        <p>Ketua & Wakil Departemen Finance</p>
+                    </div>
                 </div>
                 <h1>Divisi Dana</h1>
                 <div id="dana">
                     <div class="crew-item">
                         <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
+                            <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Dana/DSC_0009.JPG" alt="1">
                         </div>
-                        <h3>Keira Atalie Tarmidi & Sesilia Grace Natalie</h3>
-                        <p>Ketua & Wakil Dana (Divisi)</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
+                        <div class="text-crew">
+                            <h3>Anggota Divisi</h3>
+                            <p>Dana</p>
                         </div>
-                        <h3>Acharya Tanawata Kennaputra</h3>
-                        <p>Anggota Dana</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Chelesia Glory</h3>
-                        <p>Anggota Dana</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Maria Aretha Zizi</h3>
-                        <p>Anggota Dana</p>
                     </div>
                 </div>
                 <h1>Divisi Sponsor</h1>
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Sponsor/IMG_6346.JPG" alt="1">
                     </div>
-                    <h3>Marie Vianney Sabelle & Stephany Christy Jovitamika</h3>
-                    <p>Ketua & Wakil Sponsor (Divisi)</p>
+                    <div class="text-crew">
+                        <h3>Marie & Stephany</h3>
+                        <p>Ketua & Wakil Sponsor (Divisi)</p>
+                    </div>
                 </div>
             </div>
             
             <div class="crew-group" id="division6">
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/KaWaDep Events/DSC_0023.JPG" alt="1">
                     </div>
-                    <h3>Chelesia Aurelia Putri Pachrista & Stephanie Sharon Liezl Sutanto</h3>
-                    <p>Ketua & Wakil Departemen Event</p>
+                    <div class="text-crew">
+                        <h3>Chelesia & Stephanie</h3>
+                        <p>Ketua & Wakil Departemen Event</p>
+                    </div>
                 </div>
                 <h1>Divisi Acara</h1>
                 <div id="acara">
                     <div class="crew-item">
                         <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
+                            <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/Acara/DSC_0010.JPG" alt="1">
                         </div>
-                        <h3>Bernadeth Advenantia & Maria Evangeline</h3>
-                        <p>Ketua & Wakil Acara (Divisi)</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
+                        <div class="text-crew">
+                            <h3>Anggota Divisi</h3>
+                            <p>Acara</p>
                         </div>
-                        <h3>Agata Sekar Larasti</h3>
-                        <p>Anggota Acara</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Rambu Delya Tamuina</h3>
-                        <p>Anggota Acara</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Galih Apta Krisna Putra</h3>
-                        <p>Anggota Acara</p>
                     </div>
                 </div>
                 <h1>Divisi Kebangsaan</h1>
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/Kebangsaan/DSC_0019.JPG" alt="1">
                     </div>
-                    <h3>Kezhia Pricilia Bong & Anastasia Zefanya</h3>
-                    <p>Ketua & Wakil Kebangsaan (Divisi)</p>
+                    <div class="text-crew">
+                        <h3>Kezhia & Zefanya</h3>
+                        <p>Ketua & Wakil Kebangsaan (Divisi)</p>
+                    </div>
                 </div>
                 <h1>Divisi Sport</h1>
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan MDLP/Sports/DSC_0015.JPG" alt="1">
                     </div>
-                    <h3>Natania Egidia Prodiantoro & Nicole Sandria Siwy</h3>
-                    <p>Ketua & Wakil Sports (Divisi)</p>
-                </div>
+                    <div class="text-crew">
+                        <h3>Natania & Nicole</h3>
+                        <p>Ketua & Wakil Sports (Divisi)</p>
+                    </div>
+                </div>       
             </div>
-            
             <div class="crew-group" id="division7">
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDep Arts/DSC_0040.JPG" alt="1">
                     </div>
-                    <h3>Gaia Brisbies Narwastu Putrichandra & Gwenna Belinda Putri</h3>
-                    <p>Ketua & Wakil Departemen Arts</p>
-                </div>
+                    <div class="text-crew">
+                        <h3>Ibie & Gwen</h3>
+                        <p>Ketua & Wakil Departemen Arts</p>
+                    </div>
+                </div> 
                 <h1>Divisi Design</h1>
-                <div id="design">
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
-                        </div>
-                        <h3>Eugenius Adriel Dekanadi & Aishah Mikka Pratama</h3>
-                        <p>Ketua & Wakil Design (Divisi)</p>
+                <div class="crew-item">
+                    <div class="pfp">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Design/IMG_6337.JPG" alt="1">
                     </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Tiffany Priscilla Pelafu</h3>
-                        <p>Anggota Design</p>
+                    <div class="text-crew">
+                        <h3>Anggota Divisi</h3>
+                        <p>Design</p>
                     </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Josephine Clarissa Anwar</h3>
-                        <p>Anggota Design</p>
-                    </div>
-                </div>
+                </div> 
                 <h1>Divisi Dekorasi</h1>
-                <div id="dekorasi">
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
-                        </div>
-                        <h3>Makayla Athira Sashikarina & Quinsah Faith Leonardiva Silitonga</h3>
-                        <p>Ketua & Wakil Dekorasi (Divisi)</p>
+                <div class="crew-item">
+                    <div class="pfp">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Dekor/IMG_6327.JPG" alt="1">
                     </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Genoveva Aretha</h3>
-                        <p>Anggota Dekorasi</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Rahel Emily Josephine Tampubolon</h3>
-                        <p>Anggota Dekorasi</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Anastasia Grace Widagdo</h3>
-                        <p>Anggota Dekorasi</p>
+                    <div class="text-crew">
+                        <h3>Anggota Divisi</h3>
+                        <p>Dekorasi</p>
                     </div>
                 </div>
                 <h1>Divisi Dokumentasi</h1>
-                <div id="dokum">
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                            <img src="" alt="2">
-                        </div>
-                        <h3>Vincentius Alvino Nangoy & Leonard Tristan Phandu</h3>
-                        <p>Ketua & Wakil Dokumentasi (Divisi)</p>
+                <div class="crew-item">
+                    <div class="pfp">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/DOKUM/DSC06639.JPG" alt="1">
                     </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Made Bramara Wiranatha</h3>
-                        <p>Anggota Dokumentasi</p>
+                    <div class="text-crew">
+                        <h3>Anggota Divisi</h3>
+                        <p>Dokumentasi</p>
                     </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Precious Christopher</h3>
-                        <p>Anggota Dokumentasi</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Nadine Anastacia</h3>
-                        <p>Anggota Dokumentasi</p>
-                    </div>
-                    <div class="crew-item">
-                        <div class="pfp">
-                            <img src="" alt="1">
-                        </div>
-                        <h3>Menachem Abishai Mahendraputra</h3>
-                        <p>Anggota Dokumentasi</p>
-                    </div>
-                </div>
+                </div> 
                 <h1>Divisi Talent</h1>
                 <div class="crew-item">
                     <div class="pfp">
-                        <img src="" alt="1">
-                        <img src="" alt="2">
+                        <img src="assets/Photoshoot OSIS 24-25/Depan Kapel/Talents/IMG_6354.JPG" alt="1">
                     </div>
-                    <h3>Regina Clarissa Meira & Audrey Feliccia</h3>
-                    <p>Ketua & Wakil Talent (Divisi)</p>
-                </div>
+                    <div class="text-crew">
+                        <h3>Anggota Divisi</h3>
+                        <p>Talent</p>
+                    </div>
+                </div> 
             </div>
-        </div>        
-          </div>
-      </div>
-  </section>
+        </div>
+    </section>
 
   <section class="footer" id="footer">
     <div class="footer-content">
@@ -698,49 +597,73 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <!-- HideAndShow-OnScroll -->
     <script>
-      let lastScrollPosition = 0; // To track the previous scroll position
-      const nav = document.querySelector(".header .nav");
-
-      document.addEventListener("scroll", () => {
-          const currentScrollPosition = window.scrollY;
-          const scrollThreshold90 = window.innerHeight * 0.9; // 90vh
-          const scrollThreshold110 = window.innerHeight * 1.1; // 110vh
-
-          // Handle background and text color change at 90vh
-          if (currentScrollPosition > scrollThreshold90) {
-              nav.classList.add("scrolled");
-          } else {
-              nav.classList.remove("scrolled");
-          }
-
-          // Handle nav disappearance at 110vh
-          if (currentScrollPosition > scrollThreshold110 && currentScrollPosition > lastScrollPosition) {
-              nav.style.transform = "translateY(-100%)"; // Hide nav
-          } else {
-              nav.style.transform = "translateY(0)"; // Show nav
-          }
-
-          lastScrollPosition = currentScrollPosition; // Update last scroll position
-      });
-    </script>
+        let lastScrollPosition = 0; // Track previous scroll position
+        const nav = document.querySelector(".header .nav");
+        const nav_a = document.querySelectorAll(".header .nav nav a"); // Select all <a> elements
+        const nav_logo = document.querySelector(".header .nav .logo");
+    
+        document.addEventListener("scroll", () => {
+            const currentScrollPosition = window.scrollY;
+            const scrollThreshold90 = window.innerHeight * 0.9; // 90vh
+            const scrollThreshold110 = window.innerHeight * 1.1; // 110vh
+    
+            // Handle background and text color change at 90vh
+            if (currentScrollPosition > scrollThreshold90) {
+                nav.classList.add("scrolled");
+                nav_logo.classList.add("scrolled");
+                nav_a.forEach(a => a.classList.add("scrolled")); // Apply to all <a> elements
+            } else {
+                nav.classList.remove("scrolled");
+                nav_logo.classList.remove("scrolled");
+                nav_a.forEach(a => a.classList.remove("scrolled"));
+            }
+    
+            // Handle nav disappearance at 110vh when scrolling down
+            if (currentScrollPosition > scrollThreshold110 && currentScrollPosition > lastScrollPosition) {
+                nav.style.transform = "translateY(-100%)"; // Hide nav
+                nav.style.transition = "transform 0.3s ease-in-out"; // Smooth transition
+            } else {
+                nav.style.transform = "translateY(0)"; // Show nav
+                nav.style.transition = "transform 0.3s ease-in-out"; // Smooth transition
+            }
+    
+            lastScrollPosition = currentScrollPosition; // Update last scroll position
+        });
+    </script>    
     <!-- Tabs-Crew -->
     <script>
+        // Function to generate a random hex color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    
         // JavaScript for Crew Tabs
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 // Remove active class from all tabs and hide all crew groups
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.crew-group').forEach(group => group.classList.remove('active'));
-
+    
                 // Add active class to the clicked tab
                 tab.classList.add('active');
-
+    
                 // Show the corresponding crew group
                 const tabId = tab.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
+    
+                // Change the background color of the crew element to a random color
+                const crewElement = document.querySelector('.crew');
+                if (crewElement) {
+                    crewElement.style.backgroundColor = getRandomColor();
+                }
             });
         });
-
+    
         // Initialize the first tab as active
         document.querySelector('.tab').click();
     </script>
@@ -826,440 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     </script>
     <!-- Random Quotes -->
-    <script>
-        const quotes = [
-    "The only way to do great work is to love what you do. - Steve Jobs",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "You have within you right now, everything you need to deal with whatever the world can throw at you. - Brian Tracy",
-    "Believe you can and you're halfway there. - Theodore Roosevelt",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
-    "The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela",
-    "The way to get started is to quit talking and begin doing. - Walt Disney",
-    "Your time is limited, so don't waste it living someone else's life. - Steve Jobs",
-    "If life were predictable it would cease to be life, and be without flavor. - Eleanor Roosevelt",
-    "If you look at what you have in life, you'll always have more. - Oprah Winfrey",
-    "Life is made of moments. - Unknown",
-    "Spread love everywhere you go. Let no one ever come to you without leaving happier. - Mother Teresa",
-    "Do not go where the path may lead, go instead where there is no path and leave a trail. - Ralph Waldo Emerson",
-    "The only thing necessary for the triumph of evil is for good men to do nothing. - Edmund Burke",
-    "You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
-    "The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart. - Helen Keller",
-    "In three words I can sum up everything I've learned about life: it goes on. - Robert Frost",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon",
-    "Get busy living or get busy dying. - Stephen King",
-    "The only person you are destined to become is the person you decide to be. - Ralph Waldo Emerson",
-    "The best way to predict the future is to create it. - Peter Drucker",
-    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
-    "Do what you can with all you have, wherever you are. - Theodore Roosevelt",
-    "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
-    "The purpose of our lives is to be happy. - Dalai Lama",
-    "Life is what happens when you're busy making other plans. - John Lennon"
-        ];
-
-        function displayRandomQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            const quoteElement = document.querySelector('.quotes');
-            quoteElement.textContent = "Quote of the day: " + quotes[randomIndex];
-        }
-
-        window.onload = function() {
-            displayRandomQuote();
-            setInterval(displayRandomQuote, 86400000); // Change quote every 24 hours
-        };
-    </script>
+     <script src="quotes.js"></script>
     <!-- Sidebar -->
      <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -1268,6 +758,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     recisImage.addEventListener("click", function() {
         sidebar.classList.toggle("expanded"); // Toggle the 'expanded' class
+    });
+});
+
+     </script>
+     <!-- Different BG -->
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".crew-tabs .tab");
+    const groups = document.querySelectorAll(".crew-group");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            // Remove active class from all tabs and groups
+            tabs.forEach(t => t.classList.remove("active"));
+            groups.forEach(g => g.classList.remove("active"));
+
+            // Add active class to clicked tab and corresponding group
+            tab.classList.add("active");
+            const targetGroup = document.getElementById(tab.dataset.tab);
+            targetGroup.classList.add("active");
+        });
     });
 });
 

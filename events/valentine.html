@@ -3,9 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Recis</title>
+    <title>Slither Sweetheart</title>
+    <link rel="stylesheet" href="style-valentine.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Dancing+Script:wght@700&display=swap');
+
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float linear infinite;
+            bottom: -50px;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(-100vh - 100px)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        :root {
+            --valentine-pink: #ff6b8b;
+            --valentine-red: #ff2d4e;
+            --valentine-dark: #eed7dd;
+        }
+        
+        .valentine-player {
+            position: relative;
+            width: 320px;
+            background: url(../assets/bg/art-valentine.jpg);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(255, 45, 78, 0.2);
+            padding: 25px;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .valentine-player::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,139,0.1) 0%, rgba(255,45,78,0.05) 70%, transparent 100%);
+            z-index: -1;
+            animation: pulse 8s infinite alternate;
+        }
+        
+        .song-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: var(--valentine-dark);
+            margin-bottom: 5px;
+        }
+        
+        .artist {
+            font-size: 14px;
+            color: #faa5b7;
+            margin-bottom: 20px;
+        }
+        
+        .cover-art {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(168, 50, 83, 0.2);
+            margin: 0 auto 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--valentine-red);
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            transform: scale(1.2);
+            color: var(--valentine-dark);
+        }
+        
+        .play-btn {
+            background: var(--valentine-red);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(255, 45, 78, 0.4);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .play-btn:hover {
+            background: var(--valentine-dark);
+        }
+        
+        .progress-container {
+            background: #ffe6eb;
+            border-radius: 10px;
+            height: 6px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .progress {
+            background: var(--valentine-red);
+            border-radius: 10px;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--valentine-dark);
+            margin-bottom: 20px;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .volume-control i {
+            color: var(--valentine-red);
+            margin-right: 10px;
+        }
+        
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: #ffe6eb;
+            border-radius: 2px;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: var(--valentine-red);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            font-size: 20px;
+            color: var(--valentine-red);
+            animation: float-up 4s linear forwards;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        @keyframes float-up {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+        }
+        
+        /* Hide default audio controls */
+        #valentine-audio {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <header class="nav" id="nav">
+        <a href="../index.html" class="logo">R-SHS</a>
+
+        <nav>
+            <a href="#album">Album</a>
+        </nav>
+    </header>
+    <nav class="navbar">
+        <a href="#header" class="nav-item active">
+            <div class="nav-icon"><img src="../assets/main/home.png" alt=""></div>
+            <span>Home</span>
+        </a>
+        <a href="#main" class="nav-item">
+            <div class="nav-icon"><img src="../assets/main/gallery.png" alt=""></div>
+            <span>Album</span>
+        </a>
+        <a href="../index.html" class="nav-item">
+            <div class="nav-icon"><img src="../assets/main/header.png" alt=""></div>
+            <span>Main Page</span>
+        </a>
+    </nav>
+    <section id="header">
+        <div class="valentine-player">
+            <div class="hearts-container" id="hearts-container"></div>
+            
+            <img src="../assets/songs/careless-whisper.jpg" alt="Careless Whisper Cover" class="cover-art">
+            <h1 class="song-title">Slither Sweetheart</h1>
+            <p class="artist">-RSHS</p>
+            
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <div class="time-info">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            
+            <div class="controls">
+                <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button class="control-btn play-btn" id="play-btn"><i class="fas fa-play"></i></button>
+                <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+            </div>
+            
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+            </div>
+            
+            <audio loop id="valentine-audio" autoplay>
+                <source src="../assets/songs/careless-whisper.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="about">
+            <div class="about-text">
+                <h1>What is Slither Sweetheart?</h1>
+                <p>Event ini adalah event yang penuh dengan kasih sayang, dimana semuanya bersatu atas dasar cinta. Jadi pada event kali ini... Bersiaplah, untuk jatuh cinta</p>
+            </div>
+        </div>
+        <div class="album" id="album">
+            <div class="content">
+                <!-- content images -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bg Song -->
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     
+    <script>
+        const audio = document.getElementById('valentine-audio');
+        const playBtn = document.getElementById('play-btn');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progress-container');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const volumeSlider = document.getElementById('volume-slider');
+        const heartsContainer = document.getElementById('hearts-container');
+        
+        // Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                startHearts();
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                stopHearts();
+            }
+        });
+        
+        // Update progress bar
+        audio.addEventListener('timeupdate', updateProgress);
+        
+        // Click on progress bar to seek
+        progressContainer.addEventListener('click', setProgress);
+        
+        // Volume control
+        volumeSlider.addEventListener('input', () => {
+            audio.volume = volumeSlider.value;
+        });
+        
+        // Update song time display
+        audio.addEventListener('timeupdate', updateTime);
+        
+        // When song ends
+        audio.addEventListener('ended', () => {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+        
+        // Try to autoplay (may not work due to browser restrictions)
+        document.addEventListener('click', () => {
+            audio.play().then(() => {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                startHearts();
+            }).catch(error => {
+                console.log("Autoplay prevented:", error);
+            });
+        }, { once: true });
+        
+        function updateProgress() {
+            const { duration, currentTime } = audio;
+            const progressPercent = (currentTime / duration) * 100;
+            progress.style.width = `${progressPercent}%`;
+        }
+        
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        }
+        
+        function updateTime() {
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+            currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+            
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60).toString().padStart(2, '0');
+            
+            if (durationSeconds) {
+                durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+            }
+        }
+        
+        // Heart animation functions
+        let heartInterval;
+        
+        function startHearts() {
+            heartInterval = setInterval(createHeart, 300);
+        }
+        
+        function stopHearts() {
+            clearInterval(heartInterval);
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            
+            // Random position at the bottom
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.bottom = '-20px';
+            
+            // Random size
+            const size = Math.random() * 20 + 10;
+            heart.style.fontSize = size + 'px';
+            
+            // Random animation duration
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            
+            heartsContainer.appendChild(heart);
+            
+            // Remove heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+    </script>
+    <script src="gallery-valentine.js"></script>
+    <script>
+        // Create infinite floating hearts
+        function createHearts() {
+            const colors = ['#ff6b8b', '#ff8e9e', '#ffb3c1', '#ffd7e0', '#ffffff'];
+            
+            // Create hearts continuously
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                
+                document.body.appendChild(heart);
+                
+                // Remove heart after animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, parseFloat(heart.style.animationDuration) * 1000);
+            }, 300);
+        }
+        
+        // Call the function when the page loads
+        window.onload = createHearts;
+    </script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+{
+    "album": "photo-collection",
+    "images": [
+        {
+            "filename": "1000060983.jpg",
+            "alt": "Photo 1",
+            "caption": "Event moment"
+        },
+        {
+            "filename": "1000060987.jpg",
+            "alt": "Photo 2",
+            "caption": "Candid shot"
+        },
+        {
+            "filename": "1000061005.jpg",
+            "alt": "Photo 3",
+            "caption": "Group activity"
+        },
+        {
+            "filename": "DOC-20250219-WA0038.jpg",
+            "alt": "Document photo 1",
+            "caption": "Information slide"
+        },
+        {
+            "filename": "DOC-20250219-WA0040.jpg",
+            "alt": "Document photo 2",
+            "caption": "Presentation detail"
+        },
+        {
+            "filename": "DSC00146 (2).jpg",
+            "alt": "DSLR photo 1",
+            "caption": "Close-up shot"
+        },
+        {
+            "filename": "DSC08042 (1).jpg",
+            "alt": "DSLR photo 2",
+            "caption": "Wide angle view"
+        },
+        {
+            "filename": "DSC09800 (2).jpg",
+            "alt": "DSLR photo 3",
+            "caption": "Action moment"
+        },
+        {
+            "filename": "DSC09962 (2).jpg",
+            "alt": "DSLR photo 4",
+            "caption": "Portrait shot"
+        },
+        {
+            "filename": "f6608832.jpg",
+            "alt": "Photo 4",
+            "caption": "Special moment"
+        },
+        {
+            "filename": "f9221248.jpg",
+            "alt": "Photo 5",
+            "caption": "Celebration"
+        },
+        {
+            "filename": "NAT_9001.jpg",
+            "alt": "Nature photo 1",
+            "caption": "Scenic view"
+        },
+        {
+            "filename": "NAT_9094.jpg",
+            "alt": "Nature photo 2",
+            "caption": "Detailed landscape"
+        },
+        {
+            "filename": "NAT_9247.jpg",
+            "alt": "Nature photo 3",
+            "caption": "Natural lighting"
+        }
+    ]
+}

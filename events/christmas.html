@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jingle Joyce & Christmas Charity</title>
+    <link rel="stylesheet" href="style-christmas.css">
+    <style>
+        :root {
+            --christmas-red: #e74c3c;
+            --christmas-green: #2ecc71;
+            --christmas-gold: #f1c40f;
+        }
+        
+        .valentine-player {
+            background: rgba(10, 46, 56, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+            border: 2px solid var(--christmas-gold);
+            overflow: hidden;
+        }
+        
+        .cover-art {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--christmas-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .song-title {
+            font-size: 24px;
+            margin: 10px 0 5px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .artist {
+            font-size: 16px;
+            color: var(--christmas-gold);
+            margin-bottom: 20px;
+        }
+        
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            height: 6px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        
+        .progress {
+            background: var(--christmas-red);
+            border-radius: 5px;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .control-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            margin: 0 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            color: var(--christmas-gold);
+            transform: scale(1.2);
+        }
+        
+        .play-btn {
+            background: var(--christmas-red);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .play-btn:hover {
+            background: #c0392b;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .volume-control i {
+            margin-right: 10px;
+            color: var(--christmas-gold);
+        }
+        
+        .volume-slider {
+            width: 100px;
+            cursor: pointer;
+            accent-color: var(--christmas-red);
+        }
+        
+        /* Snowflakes animation */
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 1em;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        /* Christmas decorations */
+        .holly {
+            position: absolute;
+            font-size: 24px;
+            color: var(--christmas-green);
+            z-index: 5;
+        }
+        
+        .berry {
+            position: absolute;
+            font-size: 12px;
+            color: var(--christmas-red);
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <header class="nav" id="nav">
+        <a href="../index.html" class="logo">R-SHS</a>
+
+        <nav>
+            <a href="#album">Album</a>
+        </nav>
+    </header>
+    
+    <nav class="navbar">
+        <a href="#header" class="nav-item active">
+            <div class="nav-icon"><img src="../assets/main/home.png" alt=""></div>
+            <span>Home</span>
+        </a>
+        <a href="#main" class="nav-item">
+            <div class="nav-icon"><img src="../assets/main/gallery.png" alt=""></div>
+            <span>Album</span>
+        </a>
+        <a href="../index.html" class="nav-item">
+            <div class="nav-icon"><img src="../assets/main/header.png" alt=""></div>
+            <span>Main Page</span>
+        </a>
+    </nav>
+    <section id="header">
+        <div class="valentine-player">
+            <div class="snowflakes-container" id="snowflakes-container"></div>
+            
+            <img src="../assets/Photoshoot OSIS 24-25/Depan Kapel/Ketua Wakil OSIS/IMG_6382.JPG" alt="Christmas Songs Cover" class="cover-art">
+            <h1 class="song-title">Jingle Joyce</h1>
+            <p class="artist">Christmas Charity</p>
+            
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <div class="time-info">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            
+            <div class="controls">
+                <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button class="control-btn play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i></button>
+                <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+            </div>
+            
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+            </div>
+            
+            <audio loop id="valentine-audio" autoplay>
+                <source src="../assets/songs/all-i-want-for-christmas.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        
+        </div>
+        
+    </section>
+
+    <section id="main">
+        <div class="about">
+            <div class="about-text">
+                <h1>What is Jingle Joyce?</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore ad ipsam id. Impedit quidem porro eum magni alias laborum in labore, deleniti non dignissimos eveniet autem distinctio voluptas delectus aperiam quisquam repellendus ratione atque doloribus provident. Doloremque nisi natus sequi fugiat quod rem deleniti saepe tenetur debitis voluptates. Consectetur libero alias sint voluptates ipsum inventore, qui debitis cum iusto in?</p>
+            </div>
+        </div>
+        <div class="album" id="album">
+            <div class="content">
+                <!-- content images -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Snowflakes creation
+        function createSnowflakes() {
+            const container = document.getElementById('snowflakes-container');
+            const snowflakes = ['❄', '❅', '❆', '✻', '✼', '❄', '❅', '❆'];
+            
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+                
+                // Random properties
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.top = -20 + 'px';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snowflake.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(snowflake);
+            }
+        }
+        
+        // Create holly decorations
+        function createHollyDecorations() {
+            const player = document.querySelector('.valentine-player');
+            
+            // Create 4 holly leaves around the player
+            for (let i = 0; i < 4; i++) {
+                const holly = document.createElement('div');
+                holly.className = 'holly';
+                holly.innerHTML = '❦';
+                
+                // Position around the player
+                const angle = (i * 90) + 45;
+                const radius = 150;
+                const x = Math.cos(angle * Math.PI / 180) * radius;
+                const y = Math.sin(angle * Math.PI / 180) * radius;
+                
+                holly.style.left = `calc(50% + ${x}px)`;
+                holly.style.top = `calc(50% + ${y}px)`;
+                holly.style.transform = `rotate(${angle}deg)`;
+                
+                player.appendChild(holly);
+                
+                // Add some berries
+                const berry = document.createElement('div');
+                berry.className = 'berry';
+                berry.innerHTML = '❧';
+                berry.style.left = `calc(50% + ${x * 0.8}px)`;
+                berry.style.top = `calc(50% + ${y * 0.8}px)`;
+                player.appendChild(berry);
+            }
+        }
+        
+        // Audio player functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            createSnowflakes();
+            createHollyDecorations();
+            
+            const audio = document.getElementById('valentine-audio');
+            const playBtn = document.getElementById('play-btn');
+            const playIcon = document.getElementById('play-icon');
+            const progress = document.getElementById('progress');
+            const progressContainer = document.getElementById('progress-container');
+            const currentTimeEl = document.getElementById('current-time');
+            const durationEl = document.getElementById('duration');
+            const volumeSlider = document.getElementById('volume-slider');
+            
+            // Play/Pause
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.classList.replace('fa-play', 'fa-pause');
+                } else {
+                    audio.pause();
+                    playIcon.classList.replace('fa-pause', 'fa-play');
+                }
+            });
+            
+            // Progress bar
+            audio.addEventListener('timeupdate', () => {
+                const currentTime = audio.currentTime;
+                const duration = audio.duration;
+                const progressPercent = (currentTime / duration) * 100;
+                progress.style.width = `${progressPercent}%`;
+                
+                // Update time display
+                currentTimeEl.textContent = formatTime(currentTime);
+                if (duration) {
+                    durationEl.textContent = formatTime(duration);
+                }
+            });
+            
+            // Click on progress bar to seek
+            progressContainer.addEventListener('click', (e) => {
+                const width = progressContainer.clientWidth;
+                const clickX = e.offsetX;
+                const duration = audio.duration;
+                audio.currentTime = (clickX / width) * duration;
+            });
+            
+            // Volume control
+            volumeSlider.addEventListener('input', () => {
+                audio.volume = volumeSlider.value;
+            });
+            
+            // Format time as MM:SS
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+            
+            // Auto-play (with user interaction)
+            document.body.addEventListener('click', function initAudio() {
+                audio.play().then(() => {
+                    playIcon.classList.replace('fa-play', 'fa-pause');
+                }).catch(e => {
+                    console.log("Auto-play prevented:", e);
+                });
+                document.body.removeEventListener('click', initAudio);
+            }, { once: true });
+        });
+    </script>
+
+    <!-- snowflake -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const snowflakes = document.querySelector('.snowflakes');
+            const snowflakeCount = 100;
+            const viewportWidth = window.innerWidth;
+            
+            // Create snowflakes with even distribution
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                
+                // Evenly distribute across the viewport
+                const leftPosition = (i * (viewportWidth / snowflakeCount)) + 'px';
+                snowflake.style.left = leftPosition;
+                
+                // Random horizontal movement during fall (-15px to 15px)
+                const randomX = (Math.random() * 30 - 15) + 'px';
+                snowflake.style.setProperty('--random-x', randomX);
+                
+                // Random starting offset (above viewport)
+                snowflake.style.top = (Math.random() * -100) + 'px';
+                
+                // Random animation delay (0-10s)
+                snowflake.style.animationDelay = (Math.random() * 10) + 's';
+                
+                snowflakes.appendChild(snowflake);
+            }
+        });     
+    </script>
+    <!-- Bg Song -->
+    <script>
+        document.getElementById('santa').addEventListener('click', function() {
+          document.getElementById('christmas').play();
+        });
+    </script>
+    <script src="gallery-christmas.js"></script>
+</body>
+</html>
