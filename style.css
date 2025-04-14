@@ -1891,6 +1891,19 @@ color: #E2F3FD;
     background: #E2F3FD;
   }
 
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quotes {
+    translate: 0;
+    text-align: center;
+
+  }
+
   .slider-pagination {
     position: absolute;
     bottom: 30px;

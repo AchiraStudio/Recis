@@ -30,20 +30,91 @@
             --valentine-pink: #ff6b8b;
             --valentine-red: #ff2d4e;
             --valentine-dark: #eed7dd;
+            --cny-red: #e53935;
+            --cny-gold: #ffd700;
+            --cny-dark: #b71c1c;
         }
         
         .valentine-player {
             position: relative;
             width: 320px;
             background: url(../assets/bg/art-valentine.jpg);
+            background-size: cover;
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(255, 45, 78, 0.2);
             padding: 25px;
             text-align: center;
             overflow: hidden;
             z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        /* Chinese New Year Theme */
+        .valentine-player.cny-theme {
+            background: linear-gradient(135deg, #b71c1c 0%, #e53935 100%);
+            box-shadow: 0 15px 30px rgba(229, 57, 53, 0.3);
+            border: 2px solid var(--cny-gold);
+        }
+
+        .valentine-player.cny-theme .song-title {
+            color: var(--cny-gold);
+            text-shadow: 1px 1px 4px var(--cny-dark);
+        }
+
+        .valentine-player.cny-theme .artist-name {
+            color: #ffd700;
+        }
+
+        .valentine-player.cny-theme .play-btn,
+        .valentine-player.cny-theme .prev-btn,
+        .valentine-player.cny-theme .next-btn {
+            background-color: var(--cny-red);
+            color: var(--cny-gold);
+            border: 1px solid var(--cny-gold);
+        }
+
+        .valentine-player.cny-theme .play-btn:hover,
+        .valentine-player.cny-theme .prev-btn:hover,
+        .valentine-player.cny-theme .next-btn:hover {
+            background-color: var(--cny-dark);
+        }
+
+        .valentine-player.cny-theme .volume-slider::-webkit-slider-thumb {
+            background-color: var(--cny-gold);
+        }
+
+        .valentine-player.cny-theme .progress-bar::-webkit-slider-thumb {
+            background-color: var(--cny-gold);
         }
         
+        .valentine-player.cny-theme .progress {
+            background: var(--cny-gold);
+        }
+        
+        .valentine-player.cny-theme .artist {
+            color: #ffcc80;
+        }
+        
+        .valentine-player.cny-theme .progress-container {
+            background: rgba(255, 215, 0, 0.2);
+        }
+        
+        .valentine-player.cny-theme .time-info {
+            color: #ffcc80;
+        }
+        
+        .valentine-player.cny-theme .control-btn {
+            color: var(--cny-gold);
+        }
+        
+        .valentine-player.cny-theme .control-btn:hover {
+            color: #ffcc80;
+        }
+        
+        .valentine-player.cny-theme::before {
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(229,57,53,0.05) 70%, transparent 100%);
+        }
+
         .valentine-player::before {
             content: '';
             position: absolute;
@@ -61,12 +132,14 @@
             font-size: 24px;
             color: var(--valentine-dark);
             margin-bottom: 5px;
+            transition: all 0.5s ease;
         }
         
         .artist {
             font-size: 14px;
             color: #faa5b7;
             margin-bottom: 20px;
+            transition: all 0.5s ease;
         }
         
         .cover-art {
@@ -115,10 +188,29 @@
             box-shadow: 0 5px 15px rgba(255, 45, 78, 0.4);
             margin-top: 20px;
             margin-bottom: 20px;
+            transition: all 0.3s;
         }
         
         .play-btn:hover {
             background: var(--valentine-dark);
+        }
+        
+        .next-song-btn {
+            background: var(--valentine-pink);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(255, 107, 139, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .next-song-btn:hover {
+            background: var(--valentine-red);
+            transform: scale(1.1);
         }
         
         .progress-container {
@@ -134,7 +226,7 @@
             border-radius: 10px;
             height: 100%;
             width: 0%;
-            transition: width 0.1s linear;
+            transition: width 0.1s linear, background 0.5s ease;
         }
         
         .time-info {
@@ -143,6 +235,7 @@
             font-size: 12px;
             color: var(--valentine-dark);
             margin-bottom: 20px;
+            transition: all 0.5s ease;
         }
         
         .volume-control {
@@ -154,6 +247,7 @@
         .volume-control i {
             color: var(--valentine-red);
             margin-right: 10px;
+            transition: all 0.5s ease;
         }
         
         .volume-slider {
@@ -171,6 +265,7 @@
             background: var(--valentine-red);
             border-radius: 50%;
             cursor: pointer;
+            transition: all 0.5s ease;
         }
         
         .hearts-container {
@@ -240,9 +335,9 @@
         <div class="valentine-player">
             <div class="hearts-container" id="hearts-container"></div>
             
-            <img src="../assets/songs/careless-whisper.jpg" alt="Careless Whisper Cover" class="cover-art">
-            <h1 class="song-title">Slither Sweetheart</h1>
-            <p class="artist">-RSHS</p>
+            <img src="../assets/songs/careless-whisper.jpg" alt="Careless Whisper Cover" class="cover-art" id="cover-art">
+            <h1 class="song-title" id="song-title">Slither Sweetheart</h1>
+            <p class="artist" id="artist">-RSHS</p>
             
             <div class="progress-container" id="progress-container">
                 <div class="progress" id="progress"></div>
@@ -254,9 +349,9 @@
             </div>
             
             <div class="controls">
-                <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
-                <button class="control-btn play-btn" id="play-btn"><i class="fas fa-play"></i></button>
-                <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+                <button class="control-btn" id="prev-btn" title="Previous Song"><i class="fas fa-step-backward"></i></button>
+                <button class="control-btn play-btn" id="play-btn" title="Play/Pause"><i class="fas fa-play"></i></button>
+                <button class="control-btn next-song-btn" id="next-btn" title="Next Song"><i class="fas fa-step-forward"></i></button>
             </div>
             
             <div class="volume-control">
@@ -264,7 +359,7 @@
                 <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
             </div>
             
-            <audio loop id="valentine-audio" autoplay>
+            <audio id="valentine-audio">
                 <source src="../assets/songs/careless-whisper.mp3" type="audio/mpeg">
             </audio>
         </div>
@@ -274,7 +369,7 @@
         <div class="about">
             <div class="about-text">
                 <h1>What is Slither Sweetheart?</h1>
-                <p>Event ini adalah event yang penuh dengan kasih sayang, dimana semuanya bersatu atas dasar cinta. Jadi pada event kali ini... Bersiaplah, untuk jatuh cinta</p>
+                <p>Event ini adalah event yang penuh dengan kasih sayang, dimana semuanya bersatu atas dasar cinta, dengan campuran tradisi China dengan event tahun baru "Imlek". Jadi terimakasih untuk semuanya yang telah menjalani event ini dengan semangat!</p>
             </div>
         </div>
         <div class="album" id="album">
@@ -289,6 +384,24 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     
     <script>
+        // Song playlist
+        const songs = [
+            {
+                title: "Slither Sweetheart",
+                artist: "-RSHS",
+                cover: "../assets/songs/careless-whisper.jpg",
+                source: "../assets/songs/careless-whisper.mp3",
+                theme: "valentine"
+            },
+            {
+                title: "Chinese New Year",
+                artist: "-RSHS",
+                cover: "../assets/albums/slither-sweetheart/DSC09800 (2).jpg",
+                source: "../assets/songs/chinese_newyear.mp3",
+                theme: "cny"
+            }
+        ];
+
         const audio = document.getElementById('valentine-audio');
         const playBtn = document.getElementById('play-btn');
         const progress = document.getElementById('progress');
@@ -297,17 +410,56 @@
         const durationEl = document.getElementById('duration');
         const volumeSlider = document.getElementById('volume-slider');
         const heartsContainer = document.getElementById('hearts-container');
+        const coverArt = document.getElementById('cover-art');
+        const songTitle = document.getElementById('song-title');
+        const artist = document.getElementById('artist');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const player = document.querySelector('.valentine-player');
         
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        // Initialize player with first song
+        function loadSong(songIndex) {
+            const song = songs[songIndex];
+            songTitle.textContent = song.title;
+            artist.textContent = song.artist;
+            coverArt.src = song.cover;
+            audio.src = song.source;
+            
+            // Set theme based on song
+            player.classList.remove('valentine-theme', 'cny-theme');
+            if (song.theme === 'cny') {
+                player.classList.add('cny-theme');
+            } else {
+                player.classList.add('valentine-theme');
+            }
+            
+            // Load the new song
+            audio.load();
+            
+            // If player was playing, continue playing
+            if (isPlaying) {
+                audio.play().then(() => {
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    startHearts();
+                });
+            }
+        }
+
         // Play/Pause
         playBtn.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
                 playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 startHearts();
+                isPlaying = true;
             } else {
                 audio.pause();
                 playBtn.innerHTML = '<i class="fas fa-play"></i>';
                 stopHearts();
+                isPlaying = false;
             }
         });
         
@@ -325,16 +477,22 @@
         // Update song time display
         audio.addEventListener('timeupdate', updateTime);
         
-        // When song ends
-        audio.addEventListener('ended', () => {
-            playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        });
+        // When song ends, play next song
+        audio.addEventListener('ended', nextSong);
+        
+        // Previous song button
+        prevBtn.addEventListener('click', prevSong);
+        
+        // Next song button
+        nextBtn.addEventListener('click', nextSong);
         
         // Try to autoplay (may not work due to browser restrictions)
         document.addEventListener('click', () => {
+            loadSong(currentSongIndex);
             audio.play().then(() => {
                 playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 startHearts();
+                isPlaying = true;
             }).catch(error => {
                 console.log("Autoplay prevented:", error);
             });
@@ -366,21 +524,54 @@
             }
         }
         
+        // Play next song
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+            if (isPlaying) {
+                audio.play();
+            }
+        }
+        
+        // Play previous song
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+            if (isPlaying) {
+                audio.play();
+            }
+        }
+        
         // Heart animation functions
         let heartInterval;
         
         function startHearts() {
-            heartInterval = setInterval(createHeart, 300);
+            stopHearts(); // Clear any existing interval
+            
+            const currentTheme = songs[currentSongIndex].theme;
+            heartInterval = setInterval(() => {
+                createHeart(currentTheme);
+            }, 300);
         }
         
         function stopHearts() {
             clearInterval(heartInterval);
         }
         
-        function createHeart() {
+        function createHeart(theme) {
             const heart = document.createElement('div');
             heart.innerHTML = '❤️';
             heart.classList.add('heart');
+            
+            // Set color based on theme
+            if (theme === 'cny') {
+                // Use gold or red for CNY theme
+                heart.style.color = Math.random() > 0.5 ? 'var(--cny-gold)' : 'var(--cny-red)';
+            } else {
+                // Use pink/red shades for Valentine theme
+                const colors = ['#ff6b8b', '#ff8e9e', '#ffb3c1', '#ffd7e0', '#ffffff'];
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            }
             
             // Random position at the bottom
             heart.style.left = Math.random() * 100 + '%';
