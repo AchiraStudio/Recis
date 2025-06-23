@@ -914,14 +914,29 @@ z-index: -1; /* Keeps the blur behind the content */
   z-index: 2;
 }
 
-/* Slider 4 */
+/* Slide 4 */
 .slide-4 {
   left: 300%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.slide-4 .slider-content {
+  display: flex;
+  border-radius: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95%;
+  width: 97%;
+  padding: 20px;
+  text-align: center;
+  background: white;
+}
 
 /* Main section */
 .main {
