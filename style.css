@@ -243,7 +243,7 @@ z-index: -1; /* Keeps the blur behind the content */
   -webkit-transform: translateX(-200%);
   transform: translateX(-200%);
 }
-.slide-4:checked ~ .slider {
+.slide-radio4:checked ~ .slider {
   -webkit-transform: translateX(-300%);
   transform: translateX(-300%);
 }
