@@ -44,10 +44,10 @@
         .slide-3.dark-mode {
             background: #1b2327;
         }
-        .slide-4.light-mode {
+        .slide-open.light-mode {
             background: #E2F3FD;
         }
-        .slide-4.dark-mode {
+        .slide-open.dark-mode {
             background: #1b2327;
         }
         .main.light-mode {
@@ -143,17 +143,17 @@
         
       <!-- Slider Wrapper -->
       <div class="css-slider-wrapper">
-        <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
+        <input type="radio" name="slider" class="slide-radio1" id="slider_1">
         <input type="radio" name="slider" class="slide-radio2" id="slider_2">
         <input type="radio" name="slider" class="slide-radio3" id="slider_3">
-        <input type="radio" name="slider" class="slide-radio4" id="slider_4">
+        <input type="radio" name="slider" class="slide-radio_open" id="slider_open" checked id="slider_open">
   
         <!-- Slider Pagination -->
         <div class="slider-pagination">
           <label for="slider_1" class="page1"></label>
           <label for="slider_2" class="page2"></label>
           <label for="slider_3" class="page3"></label>
-          <label for="slider_4" class="page4"></label>
+          <label for="slider_open" class="page_open"></label>
         </div>
   
         <!-- Main Slide -->
@@ -237,15 +237,34 @@
             </div>
         </div>
 
-        <!-- Easter Event -->
-        <div class="slider slide-4">
-            <div class="slider-content">
+        <!-- Open Recruit Slider - Overhauled Version -->
+        <div class="slider slide-open">
+            <div class="slider-content recruit-theme">
+                <!-- Confetti Celebration -->
+                <div class="confetti">
+                    <div class="confetti-piece">🎉</div>
+                    <div class="confetti-piece">✨</div>
+                    <div class="confetti-piece">🎊</div>
+                    <div class="confetti-piece">🌟</div>
+                    <div class="confetti-piece">🥳</div>
+                </div>
                 
-                <h1 class="easter-title">HAPPY EASTER!</h1>
+                <!-- Recruitment Decorations -->
+                <div class="recruit-elements">
+                    <div class="badge">🎖️</div>
+                    <div class="trophy">🏆</div>
+                    <div class="medal">🥇</div>
+                </div>
                 
-                <div class="button-slider valentine-btn" onclick="window.open('events/valentine.html', '_blank')">
-                    <h1>Take Me There!</h1>
-                    <div class="heart-pulse"></div>
+                <!-- Main Content -->
+                <h1 class="recruit-title">Join Our Team!</h1>
+                <p class="recruit-subtitle">Exciting opportunities await new recruits</p>
+                
+                <!-- Animated Button -->
+                <div class="button-slider recruit-btn" onclick="window.open('recruitment.html', '_blank')">
+                    <span class="btn-text">Apply Now!</span>
+                    <span class="celebrate">🎯</span>
+                    <div class="sparkles">✨✨✨</div>
                 </div>
             </div>
         </div>
@@ -269,8 +288,8 @@
                 </div>
                 <div class="event-item">
                     <div class="event3"></div>
-                    <div class="event-date">2025-04-22</div>
-                    <div class="event-description">Easter Charity</div>
+                    <div class="event-date" style="color: black;">2025-04-22</div>
+                    <div class="event-description" style="color: black;">Easter Charity</div>
                 </div>
                 <div class="event-item">
                     <div class="event5"></div>
@@ -315,7 +334,6 @@
         </div>
     </section>
     
-
     <section class="about" id="about">
         <div class="about-content">
             <h2>About Us</h2>
@@ -674,9 +692,9 @@
             <div class="circle"></div>
             <div class="square"></div>
             <div class="circle"></div>
+    
+        <button onclick="resetRedirectCycle()">Reset Visit Counter</button>
   </section>
-  
-  
 
     <!-- Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
@@ -885,5 +903,6 @@ function autoSlide() {
 setInterval(autoSlide, 4500);
      </script>
      <script src="dark-light.js"></script>
+     <script src="welcome.js"></script>
 </body>
 </html>

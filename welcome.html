@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome RECIS Angkatan 70</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --dark: #121212;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            perspective: 1000px;
+        }
+        
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Welcome Section */
+        .welcome-container {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 10;
+        }
+        
+        .welcome-container.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .main-text {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .sub-text {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            margin-top: 1rem;
+        }
+        
+        /* Message Section */
+        .message-container {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+            max-width: 700px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 20;
+        }
+        
+        .message-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .message-line {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .message-line:nth-child(1) { color: var(--primary); }
+        .message-line:nth-child(2) { color: var(--secondary); }
+        .message-line:nth-child(3) { color: var(--accent); }
+        
+        .message-line.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Glow Effects */
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        /* Background Stars */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* Animations */
+        @keyframes shoot {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(var(--target-y)); opacity: 1; }
+        }
+        
+        @keyframes explode {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <!-- Background Stars -->
+        <div class="stars" id="stars"></div>
+        
+        <!-- Welcome Section -->
+        <div class="welcome-container" id="welcome">
+            <div class="main-text">Welcome RECIS Angkatan 70</div>
+            <div class="sub-text">dan angkatan lainnya</div>
+        </div>
+        
+        <!-- Message Section -->
+        <div class="message-container" id="message">
+            <div class="message-line" id="line1">Perjalanan baru menunggu kalian!</div>
+            <div class="message-line" id="line2">Ini tidak akan mudah, percayalah. Kaka kesusahan bgt di kurkum merdeka.</div>
+            <div class="message-line" id="line3">Jaga diri, semangat belajar. Tunjukin kalau kita bisa.</div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize the scene
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            startAnimationSequence();
+        });
+        
+        // Create background stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random properties
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = 2 + Math.random() * 3;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                
+                // Random delay for twinkling
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Main animation sequence
+        function startAnimationSequence() {
+            const welcome = document.getElementById('welcome');
+            const message = document.getElementById('message');
+            
+            // Show welcome after brief delay
+            setTimeout(() => {
+                welcome.classList.add('active');
+                
+                // Start floating particles
+                createFloatingParticles();
+                
+                // After welcome is shown, transition to messages
+                setTimeout(() => {
+                    welcome.classList.remove('active');
+                    
+                    setTimeout(() => {
+                        message.classList.add('active');
+                        showMessages();
+                        startFireworks();
+                        createConfetti();
+                    }, 1000);
+                }, 4000);
+            }, 500);
+        }
+        
+        // Animate messages one by one
+        function showMessages() {
+            const lines = document.querySelectorAll('.message-line');
+            
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('active');
+                    
+                    // Add glow effect for each line
+                    if (index === 0) {
+                        createGlowEffect(line, 'var(--primary)');
+                    } else if (index === 1) {
+                        createGlowEffect(line, 'var(--secondary)');
+                    } else {
+                        createGlowEffect(line, 'var(--accent)');
+                    }
+                }, index * 3500);
+            });
+            
+            // Redirect after all animations
+            setTimeout(() => {
+                window.location.href = "index.html"; // Change to your target URL
+            }, 14000);
+        }
+        
+        // Create floating particles around text
+        function createFloatingParticles() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ffffff'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    // Random properties
+                    const size = 2 + Math.random() * 4;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const x = 40 + Math.random() * 20;
+                    const y = 40 + Math.random() * 20;
+                    const duration = 10 + Math.random() * 10;
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.backgroundColor = color;
+                    particle.style.left = `${x}%`;
+                    particle.style.top = `${y}%`;
+                    particle.style.animation = `float ${duration}s infinite ease-in-out`;
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+                    particle.style.opacity = 0.5 + Math.random() * 0.5;
+                    
+                    document.body.appendChild(particle);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        particle.remove();
+                    }, duration * 1000);
+                }, i * 300);
+            }
+        }
+        
+        // Create fireworks
+        function startFireworks() {
+            // Create multiple fireworks with delays
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    createFirework();
+                }, i * 800);
+            }
+        }
+        
+        function createFirework() {
+            // Create shooting particle
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            
+            // Random color
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9ff3', '#feca57', '#1dd1a1'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.backgroundColor = color;
+            
+            // Random position
+            const x = Math.random() * window.innerWidth;
+            firework.style.left = `${x}px`;
+            firework.style.bottom = '0';
+            
+            document.body.appendChild(firework);
+            
+            // Random target height (explosion point)
+            const targetY = 100 + Math.random() * (window.innerHeight - 200);
+            firework.style.setProperty('--target-y', `${targetY}px`);
+            
+            // Shoot animation
+            const shootDuration = 0.8 + Math.random() * 0.4;
+            firework.style.animation = `shoot ${shootDuration}s forwards cubic-bezier(0.1, 0.8, 0.2, 1)`;
+            
+            // Trail effect
+            createFireworkTrail(x, targetY, color, shootDuration);
+            
+            // Explode after reaching target
+            setTimeout(() => {
+                firework.remove();
+                createExplosion(x, targetY, color);
+            }, shootDuration * 1000);
+        }
+        
+        // Create firework trail
+        function createFireworkTrail(x, targetY, color, duration) {
+            const trailParticles = 10;
+            
+            for (let i = 0; i < trailParticles; i++) {
+                setTimeout(() => {
+                    const trail = document.createElement('div');
+                    trail.className = 'firework';
+                    
+                    trail.style.backgroundColor = color;
+                    trail.style.left = `${x}px`;
+                    trail.style.bottom = '0';
+                    trail.style.opacity = '0.7';
+                    trail.style.width = '3px';
+                    trail.style.height = '3px';
+                    
+                    // Calculate current position based on animation progress
+                    const progress = i / trailParticles;
+                    const currentY = progress * targetY;
+                    
+                    trail.style.transform = `translateY(${-currentY}px)`;
+                    trail.style.transition = `all ${duration * 0.5}s linear`;
+                    
+                    document.body.appendChild(trail);
+                    
+                    // Fade out trail
+                    setTimeout(() => {
+                        trail.style.opacity = '0';
+                        setTimeout(() => trail.remove(), 500);
+                    }, 100);
+                }, i * (duration * 1000 / trailParticles));
+            }
+        }
+        
+        // Create explosion effect
+        function createExplosion(x, y, color) {
+            const particleCount = 50 + Math.floor(Math.random() * 50);
+            
+            // Create glow effect at explosion center
+            const glow = document.createElement('div');
+            glow.className = 'glow';
+            glow.style.width = '100px';
+            glow.style.height = '100px';
+            glow.style.backgroundColor = color;
+            glow.style.left = `${x - 50}px`;
+            glow.style.top = `${y - 50}px`;
+            glow.style.transition = 'all 1s ease-out';
+            
+            document.body.appendChild(glow);
+            
+            // Expand and fade glow
+            setTimeout(() => {
+                glow.style.transform = 'scale(2)';
+                glow.style.opacity = '0';
+                
+                setTimeout(() => {
+                    glow.remove();
+                }, 1000);
+            }, 10);
+            
+            // Create explosion particles
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework';
+                
+                // Random properties
+                const size = 2 + Math.random() * 4;
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 30 + Math.random() * 120;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const duration = 0.8 + Math.random() * 0.5;
+                
+                particle.style.backgroundColor = color;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                particle.style.animation = `explode ${duration}s forwards cubic-bezier(0.1, 0.2, 0.8, 1)`;
+                
+                document.body.appendChild(particle);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, duration * 1000);
+            }
+        }
+        
+        // Create confetti effect
+        function createConfetti() {
+            const confettiCount = 150;
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9ff3', '#feca57', '#1dd1a1'];
+            
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    // Random properties
+                    const size = 5 + Math.random() * 10;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const x = Math.random() * window.innerWidth;
+                    const duration = 3 + Math.random() * 4;
+                    const delay = Math.random() * 5;
+                    
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    confetti.style.backgroundColor = color;
+                    confetti.style.left = `${x}px`;
+                    confetti.style.top = `-10px`;
+                    confetti.style.animation = `confetti-fall ${duration}s linear ${delay}s forwards`;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, (duration + delay) * 1000);
+                }, i * 100);
+            }
+        }
+        
+        // Create glow effect behind text
+        function createGlowEffect(element, color) {
+            const rect = element.getBoundingClientRect();
+            const glow = document.createElement('div');
+            glow.className = 'glow';
+            
+            glow.style.width = `${rect.width + 100}px`;
+            glow.style.height = `${rect.height + 50}px`;
+            glow.style.backgroundColor = color;
+            glow.style.left = `${rect.left - 50 + window.scrollX}px`;
+            glow.style.top = `${rect.top - 25 + window.scrollY}px`;
+            glow.style.opacity = '0';
+            glow.style.transition = 'opacity 1s ease-out';
+            
+            document.body.appendChild(glow);
+            
+            // Fade in
+            setTimeout(() => {
+                glow.style.opacity = '0.3';
+            }, 10);
+            
+            // Pulse animation
+            setInterval(() => {
+                glow.style.transform = `scale(${1 + Math.random() * 0.1})`;
+            }, 2000);
+            
+            // Remove after text disappears
+            setTimeout(() => {
+                glow.style.opacity = '0';
+                setTimeout(() => glow.remove(), 1000);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

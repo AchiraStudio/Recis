@@ -221,7 +221,7 @@ z-index: -1; /* Keeps the blur behind the content */
 .slide-radio1:checked ~ .slider-pagination .page1,
 .slide-radio2:checked ~ .slider-pagination .page2,
 .slide-radio3:checked ~ .slider-pagination .page3,
-.slide-radio4:checked ~ .slider-pagination .page4 {
+.slide-radio_open:checked ~ .slider-pagination .page_open {
   width: 25px;
   height: 25px;
   border: 2px solid #5579f0;
@@ -242,7 +242,7 @@ z-index: -1; /* Keeps the blur behind the content */
   -webkit-transform: translateX(-200%);
   transform: translateX(-200%);
 }
-.slide-radio4:checked ~ .slider {
+.slide-radio_open:checked ~ .slider {
   -webkit-transform: translateX(-300%);
   transform: translateX(-300%);
 }
@@ -250,15 +250,15 @@ z-index: -1; /* Keeps the blur behind the content */
 .slide-radio1:checked ~ .slide-1 h2,
 .slide-radio2:checked ~ .slide-2 h2,
 .slide-radio3:checked ~ .slide-3 h2,
-.slide-radio4:checked ~ .slide-4 h2,
+.slide-radio_open:checked ~ .slide-open h2,
 .slide-radio1:checked ~ .slide-1 h4,
 .slide-radio2:checked ~ .slide-2 h4,
 .slide-radio3:checked ~ .slide-3 h4,
-.slide-radio4:checked ~ .slide-4 h4,
+.slide-radio_open:checked ~ .slide-open h4,
 .slide-radio1:checked ~ .slide-1 > img,
 .slide-radio2:checked ~ .slide-2 > img,
 .slide-radio3:checked ~ .slide-3 > img,
-.slide-radio4:checked ~ .slide-4 > img{
+.slide-radio_open:checked ~ .slide-open > img{
   -webkit-transform: translateX(0);
   transform: translateX(0);
   opacity: 1;
@@ -914,28 +914,189 @@ z-index: -1; /* Keeps the blur behind the content */
   z-index: 2;
 }
 
-/* Slide 4 */
-.slide-4 {
+/* Open Recruit Slider Styling */
+.slide-open {
   left: 300%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #E2F3FD;
 }
 
-.slide-4 .slider-content {
-  display: flex;
+/* Recruitment Theme Styles */
+.recruit-theme {
+  background: linear-gradient(135deg, #1a3a8f, #0c2461);
   border-radius: 40px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fbc531;
+  font-family: 'Arial', sans-serif;
   height: 95%;
   width: 97%;
-  padding: 20px;
-  text-align: center;
-  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+.recruit-title {
+  color: #fff;
+  font-size: 3.5rem;
+  text-shadow: 0 2px 10px rgba(251, 197, 49, 0.7);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 5;
+  animation: glow 2s infinite alternate;
+  font-weight: 800;
+}
+
+.recruit-subtitle {
+  color: #fbc531;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 5;
+  font-style: italic;
+}
+
+/* Recruitment Button */
+.recruit-btn {
+  background: linear-gradient(45deg, #1e90ff, #3742fa);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  box-shadow: 0 5px 20px rgba(30, 144, 255, 0.5);
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+  border: 2px solid #fbc531;
+}
+
+.recruit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(30, 144, 255, 0.7);
+  background: linear-gradient(45deg, #3742fa, #1e90ff);
+}
+
+.recruit-btn:active {
+  transform: translateY(1px);
+}
+
+.celebrate {
+  margin-left: 10px;
+  animation: bounce 0.8s infinite alternate;
+}
+
+/* Confetti Animation */
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: falling linear infinite;
+  user-select: none;
+}
+
+.confetti-piece:nth-child(1) { left: 10%; animation-duration: 6s; animation-delay: 0s; }
+.confetti-piece:nth-child(2) { left: 30%; animation-duration: 8s; animation-delay: 1s; }
+.confetti-piece:nth-child(3) { left: 50%; animation-duration: 7s; animation-delay: 0.5s; }
+.confetti-piece:nth-child(4) { left: 70%; animation-duration: 9s; animation-delay: 1.5s; }
+.confetti-piece:nth-child(5) { left: 90%; animation-duration: 5s; animation-delay: 2s; }
+
+/* Recruitment Decorations */
+.recruit-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.badge {
+  position: absolute;
+  font-size: 3rem;
+  top: 20%;
+  left: 15%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.trophy {
+  position: absolute;
+  font-size: 4rem;
+  top: 25%;
+  right: 15%;
+  animation: bounce 2s infinite;
+}
+
+.medal {
+  position: absolute;
+  font-size: 3rem;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: spin 4s infinite linear;
+}
+
+/* Animations */
+@keyframes falling {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes spin {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px rgba(251, 197, 49, 0.7); }
+  100% { text-shadow: 0 0 20px rgba(251, 197, 49, 0.9); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 /* Main section */
