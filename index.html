@@ -146,6 +146,7 @@
         <input type="radio" name="slider" class="slide-radio1" id="slider_1">
         <input type="radio" name="slider" class="slide-radio2" id="slider_2">
         <input type="radio" name="slider" class="slide-radio3" id="slider_3">
+        <input type="radio" name="slider" class="slide-radio3" id="slider_4">
         <input type="radio" name="slider" class="slide-radio_open" id="slider_open" checked id="slider_open">
   
         <!-- Slider Pagination -->
@@ -153,6 +154,7 @@
           <label for="slider_1" class="page1"></label>
           <label for="slider_2" class="page2"></label>
           <label for="slider_3" class="page3"></label>
+          <label for="slider_4" class="page4"></label>
           <label for="slider_open" class="page_open"></label>
         </div>
   
@@ -233,6 +235,39 @@
                 <div class="button-slider valentine-btn" onclick="window.open('events/valentine.html', '_blank')">
                     <h1>Take Me There! ❤</h1>
                     <div class="heart-pulse"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Easter Slider -->
+        <div class="slider slide-4">
+            <div class="slider-content easter-theme">
+                <!-- Animated Easter Background -->
+                <div class="easter-fall">
+                    <div class="easter-flower">🌷</div>
+                    <div class="easter-flower">🌸</div>
+                    <div class="easter-flower">🌼</div>
+                    <div class="easter-flower">🌹</div>
+                    <div class="easter-flower">💐</div>
+                </div>
+            
+                <!-- Cute Easter Elements -->
+                <div class="easter-elements">
+                    <div class="egg egg-1">🥚</div>
+                    <div class="egg egg-2">🥚</div>
+                    <div class="bunny">🐇</div>
+                    <div class="basket">🧺</div>
+                </div>
+            
+                <!-- Main Content -->
+                <h1 class="easter-title">Hop Into Spring!</h1>
+                <p class="easter-subtitle">Join our egg-citing Easter events</p>
+            
+                <!-- Animated Button -->
+                <div class="button-slider easter-btn" onclick="window.open('events/easter.html', '_blank')">
+                    <span class="btn-text">Discover Events</span>
+                    <span class="easter-icon">🐣</span>
+                    <div class="sparkles">✨✨✨</div>
                 </div>
             </div>
         </div>
@@ -693,7 +728,9 @@
             <div class="square"></div>
             <div class="circle"></div>
     
-        <button onclick="resetRedirectCycle()">Reset Visit Counter</button>
+        <button id="reset-visit-btn" style="display: none; margin: 20px auto; padding: 10px 20px; background: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Reset Visit Count
+        </button>
   </section>
 
     <!-- Js -->
