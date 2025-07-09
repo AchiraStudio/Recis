@@ -87,7 +87,6 @@ scrollbar-width: none;  /* Firefox */
 }
 
 .header .nav.scrolled {
-  background: #377ba1;
   color: rgb(255, 250, 250);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
@@ -1360,7 +1359,7 @@ padding: 5px;
 }
 
 .main-line {
-  width: 150%;
+  width: 170%;
   height: 15px;
   background: rgb(2,11,255);
 background: -moz-linear-gradient(90deg, rgba(2,11,255,1) 0%, rgba(245,83,83,1) 38%, rgba(30,173,242,1) 100%);
@@ -1380,7 +1379,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 }
 .event-top {
   padding-left: 10rem;
-  margin-left: 20rem;
+  margin-left: 30rem;
   justify-content: space-evenly;
 }
 .event-top .event-item {
@@ -1392,7 +1391,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 }
 
 .event-bottom {
-  margin-left: 25%;
+  margin-left: 35%;
   padding-left: 10rem;
   padding-right: 10rem;
   justify-content: space-evenly;
@@ -1441,29 +1440,33 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 /* Event Bgs */
 
 
-.event1, .event2, .event3, .event4, .event5, .event6, .event7, .event8 {
+.event1, .event2, .event3, .event4, .event5, .event6, .event7, .event8, .event9, .event10 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(2px);
+  filter: blur(1.1px);
+  filter: brightness(.3);
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
 .event1{
-  background: url(assets/bg/art-christmas.jpg);
+  background: url(assets/bg/chirstmas.JPG);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .event2{
-  background: url(assets/bg/art-valentine.jpg);
+  background: url(assets/bg/slither.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .event3{
-  background: url(assets/bg/art-easter.jpg);
+  background: url(assets/bg/charity.jpg);
   background-position: top;
   background-position: center;
   background-repeat: no-repeat;
@@ -1507,66 +1510,40 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 
 /* About Section */
 .about {
-background: #6eb1d6;
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-width: 100vw;
-height: auto;
-padding: 50px 100px;
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-content {
-width: 100%;
-max-width: 1200px;
-text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .about-content h2 {
-font-size: 3rem;
-color: #E2F3FD;
-margin-bottom: 20px;
+  font-size: 2rem;
+  color: white;
+  padding-top: 40px;
 }
 
-.about-content p {
-font-size: 1.5rem;
-color: #E2F3FD;
-margin-bottom: 40px;
+.text-box {
+  width: 80%;
+  height: auto;
+  background: red;
+  margin: 40px;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  color: white;
 }
-
-.about-details {
-display: flex;
-flex-direction: column;
-gap: 20px;
-}
-
-.about-item {
-background: #89cef1cc;
-padding: 20px;
-border-radius: 8px;
-z-index: 5;
-}
-
-.about-item li {
-  text-align: left;
-  color: #E2F3FD;
-  font-size: 1.2rem;
-}
-
-.about-item h3 {
-font-size: 2rem;
-color: #E2F3FD;
-margin-bottom: 10px;
-}
-
-.about-item p {
-font-size: 1.2rem;
-color: #E2F3FD;
+.text-box h3 {
+  font-size: 30px;
 }
 
 /* Tab Content */
@@ -1693,13 +1670,13 @@ color: #E2F3FD;
 }
 
 .crew-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #333;
   margin-bottom: 5px;
 }
 
 .crew-item p {
-  font-size: 1rem;
+  font-size: .7rem;
   color: #666;
 }
 
@@ -1723,14 +1700,12 @@ color: #E2F3FD;
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 5, 0.766);
-  padding: 10px 50px 0 50px;
+  padding: 10px 50px 10px 50px;
   border-radius: 30px;
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  translate: 0 30px;
 }
 
 /* Urutan */
