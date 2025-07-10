@@ -1508,6 +1508,20 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   background-size: cover;
 }
 
+.event9{
+  background: url(assets/bg/art-question.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.event10{
+  background: url(assets/bg/art-question.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* About Section */
 .about {
   width: 100%;
@@ -1626,6 +1640,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 .crew-list {
   display: flex;
@@ -1637,11 +1653,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 
 .crew-group {
   display: none;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-content: center;
   gap: 20px;
   transition: .4s all;
   background: transparent;
+  width: 100%;
 }
 
 .crew-group.active {
@@ -1666,7 +1684,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   margin-top: 5px;
   margin-bottom: 5px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  z-index: 5;
+}
+
+.crew-item.active {
+  transform: translateX(-100px); /* Move left when active */
 }
 
 .crew-item h3 {
@@ -1708,19 +1731,50 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   align-items: center;
 }
 
+.anggota {
+  height: 60px;
+}
+.anggota h3 {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.anggota p {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
 /* Urutan */
-.ketos {
-  order: 2;
+.crew-popup {
+  width: 300px;
+  height: 300px;
+  background: rgb(156, 194, 209);
+  position: absolute;
+  left: 490px; /* 500px item + 15px gap */
+  opacity: 0;
+  pointer-events: none;
+  translate: -20px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: first baseline;
+  text-align: left;
+  z-index: 3;
+}
+.crew-popup li {
+  margin: 5px;
+  font-size: 13px;
 }
 
-.sekret {
-  order: 1;
+.crew-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0); /* slides into place */
 }
-
-.bendahara {
-  order: 3;
-}
-
 /* footer */
 
 .footer {
@@ -1841,11 +1895,38 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   }
 
   .event-content {
-    height: 70vh;
+    height: 80vh;
+  }
+  .event-top {
+    height: 30vh;
+  }
+  .event-bottom {
+    overflow: visible;
+  }
+  .event-top {
+  padding-left: 10rem;
+  margin-left: 70rem;
+  justify-content: space-evenly;
+  }
+  .event-top .event-item {
+    margin-top: 20px;
+  }
+  .event-bottom .event-item {
+    margin-top: 30px;
+    margin-left: 15rem;
+  }
+
+  .event-bottom {
+    margin-left: 55%;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    justify-content: space-evenly;
+    overflow-y: visible;
+    height: 20vh;
   }
 
   .main-line {
-    width: 170%;
+    width: 210%;
   }
 }
 
@@ -2089,28 +2170,32 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   }
   
   .about-content h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 20px;
   }
   
   .about-content p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 40px;
   }
   
   .about-details {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
   }
   
   .about-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     border-radius: 8px;
   }
   
   .about-item li {
-    text-align: left;
     font-size: 1.2rem;
   }
   
@@ -2133,7 +2218,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 
   .crew-group {
     display: none;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     gap: 20px;
     transition: .4s all;
@@ -2149,7 +2234,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 320px;
+    width: 420px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2166,6 +2251,56 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
 
   .crew-item p {
     font-size: 0.98rem;
+  }
+  .crew-popup {
+    left: 400px;
+  }
+  .event-content {
+    height: 80vh;
+  }
+  .event-top {
+    height: 30vh;
+  }
+  .event-bottom {
+    overflow: visible;
+  }
+  .event-top {
+  padding-left: 10rem;
+  margin-left: 160rem;
+  justify-content: space-evenly;
+  }
+  .event-top .event-item {
+    margin-top: 20px;
+  }
+  .event-bottom .event-item {
+    margin-top: 30px;
+    margin-left: 15rem;
+  }
+
+  .event-bottom {
+    margin-left: 75%;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    justify-content: space-evenly;
+    overflow-y: visible;
+    height: 20vh;
+  }
+
+  .main-line {
+    width: 250%;
+  }
+  .anggota {
+  height: 55px;
+  }
+  .anggota h3 {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  .anggota p {
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -2400,8 +2535,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   }
   
   .event-top {
-    padding-left: 10rem;
-    margin-left: 90rem;
+    padding-left: 5rem;
+    margin-left: 180rem;
     justify-content: space-evenly;
   }
   
@@ -2415,7 +2550,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   }
   
   .event-bottom {
-    margin-left: 75%;
+    margin-left: 82%;
     padding-left: 10rem;
     padding-right: 10rem;
     justify-content: space-evenly;
@@ -2437,6 +2572,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
     transition: .4s all;
     z-index: 5;
   }
+  .main-line {
+    width: 260%;
+  }
   
   .about {
     width: 100vw;
@@ -2449,9 +2587,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
   }
   
   .about-content {
-    width: 100%;
+    width: 100vw;
     text-align: center;
-    overflow-x: visible;
     z-index: 5;
   }
   
@@ -2464,35 +2601,41 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
     font-size: .85rem;
     margin-bottom: 40px;
   }
-  
-  .about-details {
-    display: flex;
-    flex-direction: column;
+  .about-content ul {
     width: 100%;
-    overflow-x: visible;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
   }
-  
-  .about-item {
-    padding: 20px;
-    border-radius: 8px;
-    width: 280px;
-    translate: -60px;
-    z-index: 5;
+  .about-content li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
   }
-  
-  .about-item li {
-    text-align: left;
-    font-size: .72rem;
+
+  .text-box {
+  width: 320px;
+  height: auto;
+  background: red;
+  margin: 10px;
+  text-align: center;
+  padding: 10px 20px 20px 20px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   }
-  
-  .about-item h3 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-  
-  .about-item p {
-    font-size: .72rem;
+  .text-box h3 {
+    font-size: 20px;
   }
 
   .crew {
@@ -2530,6 +2673,19 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
     padding: 10px 0;
     transition: .4s all;
   }
+  .crew-popup {
+    left: 180px;
+    width: 180px;
+    height: 160px;
+    background: rgba(156, 194, 209, 0.664);
+  }
+    .crew-popup li {
+    margin: 5px;
+    font-size: 10px;
+  }
+  .crew-item.active {
+  transform: translateX(-20px); /* Move left when active */
+}
 
   .tab {
     flex: 0 0 auto;
@@ -2592,6 +2748,20 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020bff",endCo
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .anggota {
+  height: 40px;
+  }
+  .anggota h3 {
+    font-size: 7%;
+    padding: 0;
+    margin: 0;
+  }
+  .anggota p {
+    font-size: 5px;
+    padding: 0;
+    margin: 0;
   }
 
   /* Visual Elements */
