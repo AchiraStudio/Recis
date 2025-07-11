@@ -9,7 +9,7 @@ const redirectConfig = {
     textElements: '.anim-text',
     charDelay: 50,
     unlockDateTime: new Date('2025-07-14T08:00:00'),
-    adminPassword: 'rshs2025' // Set your password here
+    adminPassword: 'rshs2025'
 };
 
 // ===== UTILITY FUNCTIONS =====
@@ -18,52 +18,35 @@ function log(message) {
 }
 
 function isUnlocked() {
-    return localStorage.getItem(redirectConfig.bypassKey) === 'true' || 
+    return localStorage.getItem(redirectConfig.bypassKey) === 'true' ||
            new Date() >= redirectConfig.unlockDateTime;
 }
 
 // ===== BUTTON MANAGEMENT =====
 function createAdminButtons() {
-    // Create bypass button in top-left corner
     const bypassBtn = document.createElement('button');
     bypassBtn.id = 'bypass-btn';
     bypassBtn.textContent = 'Admin Bypass';
     bypassBtn.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 8px 15px;
-        background: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        z-index: 10000;
+        position: fixed; top: 20px; left: 20px;
+        padding: 8px 15px; background: #4CAF50; color: white;
+        border: none; border-radius: 5px; cursor: pointer;
+        font-size: 0.9rem; z-index: 10000;
     `;
     document.body.appendChild(bypassBtn);
 
-    // Create reset button in top-right corner
     const resetBtn = document.createElement('button');
     resetBtn.id = 'reset-btn';
     resetBtn.textContent = 'Reset Visit';
     resetBtn.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 8px 15px;
-        background: #f44336;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        z-index: 10000;
+        position: fixed; top: 20px; right: 20px;
+        padding: 8px 15px; background: #f44336; color: white;
+        border: none; border-radius: 5px; cursor: pointer;
+        font-size: 0.9rem; z-index: 10000;
     `;
     document.body.appendChild(resetBtn);
 
-    // Set up bypass functionality
-    bypassBtn.addEventListener('click', function() {
+    bypassBtn.addEventListener('click', () => {
         const password = prompt("Enter admin password to bypass countdown:");
         if (password === redirectConfig.adminPassword) {
             localStorage.setItem(redirectConfig.bypassKey, 'true');
@@ -75,8 +58,7 @@ function createAdminButtons() {
         }
     });
 
-    // Set up reset functionality
-    resetBtn.addEventListener('click', function() {
+    resetBtn.addEventListener('click', () => {
         const password = prompt("Enter admin password to reset visit count:");
         if (password === redirectConfig.adminPassword) {
             localStorage.removeItem(redirectConfig.localStorageKey);
@@ -89,19 +71,20 @@ function createAdminButtons() {
 }
 
 function removeAdminButtons() {
-    const bypassBtn = document.getElementById('bypass-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    if (bypassBtn) bypassBtn.remove();
-    if (resetBtn) resetBtn.remove();
+    document.getElementById('bypass-btn')?.remove();
+    document.getElementById('reset-btn')?.remove();
 }
 
 function unlockPage() {
     const overlay = document.getElementById('countdown-overlay');
+    const video = document.getElementById('countdown-video-bg');
+
     if (overlay) {
         overlay.style.transition = 'opacity 0.5s ease';
         overlay.style.opacity = '0';
         setTimeout(() => {
             overlay.remove();
+            if (video) video.remove();
             handleFirstVisitAfterUnlock();
         }, 500);
     }
@@ -110,28 +93,41 @@ function unlockPage() {
 // ===== COUNTDOWN SYSTEM =====
 function initializeCountdown() {
     log("Initializing countdown...");
-    
-    // Create overlay element
+
+    const video = document.createElement('video');
+    video.id = 'countdown-video-bg';
+    video.src = 'assets/bg/bg-play.mp4'; // Relative path to your file
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.style.cssText = `
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        object-fit: cover;
+        z-index: 9997;
+        pointer-events: none;
+    `;
+    document.body.appendChild(video);
+
     const overlay = document.createElement('div');
     overlay.id = 'countdown-overlay';
     overlay.style.cssText = `
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.95);
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background-color: rgba(0,0,0,0.75);
         color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 9999;
+        z-index: 9998;
         font-family: Arial, sans-serif;
         text-align: center;
         backdrop-filter: blur(5px);
     `;
-
     overlay.innerHTML = `
         <div style="max-width: 600px; padding: 20px;">
             <h1 style="font-size: 3rem; margin-bottom: 1rem;">Coming Soon</h1>
@@ -141,14 +137,12 @@ function initializeCountdown() {
             </p>
         </div>
     `;
-
     document.body.appendChild(overlay);
     createAdminButtons();
 
-    // Start countdown update
     const countdownElement = document.getElementById('countdown-display');
     updateCountdown(countdownElement);
-    
+
     return setInterval(() => {
         if (updateCountdown(countdownElement)) {
             clearInterval(this);
@@ -169,6 +163,7 @@ function updateCountdown(element) {
             overlay.style.opacity = '0';
             setTimeout(() => {
                 overlay.remove();
+                document.getElementById('countdown-video-bg')?.remove();
                 log("Countdown completed naturally");
                 handleFirstVisitAfterUnlock();
             }, 1000);
@@ -188,24 +183,22 @@ function updateCountdown(element) {
 // ===== VISIT COUNTER SYSTEM =====
 async function handleFirstVisitAfterUnlock() {
     const cycleState = localStorage.getItem(redirectConfig.localStorageKey);
-    
+
     if (!cycleState) {
         log("First visit after unlock - counting visit and redirecting");
-        
+
         showAllSections();
         animateTextElements();
-        
+
         await new Promise(resolve => setTimeout(resolve, redirectConfig.redirectDelay));
-        
+
         localStorage.setItem(redirectConfig.localStorageKey, 'first_visit_after_unlock');
         window.location.href = redirectConfig.secondPageUrl;
-    } 
-    else if (cycleState === 'first_visit_after_unlock') {
+    } else if (cycleState === 'first_visit_after_unlock') {
         log("Second visit after unlock - showing normal content");
         showAllSections();
         localStorage.setItem(redirectConfig.localStorageKey, 'returning_visitor');
-    }
-    else {
+    } else {
         log("Returning visitor - showing normal content");
         showAllSections();
     }
@@ -234,7 +227,6 @@ function animateTextElements() {
     document.querySelectorAll(redirectConfig.textElements).forEach(element => {
         const text = element.textContent;
         element.textContent = '';
-        
         for (let i = 0; i < text.length; i++) {
             setTimeout(() => {
                 element.textContent += text[i];
@@ -247,12 +239,11 @@ function animateTextElements() {
 }
 
 // ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     log("DOM fully loaded");
-    
-    // Clear bypass flag on page load (optional)
+
     localStorage.removeItem(redirectConfig.bypassKey);
-    
+
     if (!isUnlocked()) {
         log("Page is locked - showing countdown with admin buttons");
         hideAllSections();
@@ -263,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add CSS for animations
+// ===== ADD CSS FOR ANIMATION =====
 const style = document.createElement('style');
 style.textContent = `
     .anim-text {
