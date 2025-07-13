@@ -1,14 +1,14 @@
 // ===== CONFIGURATION =====
 const redirectConfig = {
     firstPageUrl: window.location.href,
-    secondPageUrl: 'index.html',
+    secondPageUrl: 'welcome.html',
     redirectDelay: 500,
     animationDuration: 2000,
     localStorageKey: 'page_redirect_cycle',
     bypassKey: 'bypass_countdown',
     textElements: '.anim-text',
     charDelay: 50,
-    unlockDateTime: new Date('2025-07-14T08:00:00'),
+    unlockDateTime: new Date('2025-07-15T08:00:00'),
     adminPassword: 'rshs2025'
 };
 

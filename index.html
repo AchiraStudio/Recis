@@ -306,7 +306,7 @@
                 
                 <!-- Animated Button -->
                 <div class="button-slider recruit-btn">
-                    <span class="btn-text">Coming Soon</span>
+                    <span class="btn-text" onclick="joinUs()">Coming Soon</span>
                     <span class="celebrate">🎯</span>
                     <div class="sparkles">✨✨✨</div>
                 </div>
@@ -443,6 +443,7 @@
             <!-- Division Tabs -->
             <div class="crew-tabs">
                 <div class="tab active" data-tab="division1">BPH</div>
+                <div class="tab" data-tab="pembina">Pembina</div>
                 <div class="tab" data-tab="division2">Spiritual</div>
                 <div class="tab" data-tab="division3">Edutech</div>
                 <div class="tab" data-tab="division4">Humas</div>
@@ -469,6 +470,26 @@
                             <li>Joshua Anthony Lokaputra - <br>Sekretaris 2</li>
                             <li>Eldy Nehemia Sutopo - <br>Bendahara 1</li>
                             <li>Kirana Tisananda - <br>Bendahara 2</li>
+                        </ul>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="crew-group" id="pembina">
+                  <div class="crew-item">
+                      <div class="pfp">
+                          <img src="assets/main/pembina.png" data-alt="assets/Photoshoot OSIS 24-25/Depan Kapel/Inti/DSC_0056.JPG" alt="1">
+                      </div>
+                      <div class="text-crew">
+                        <h3>Pembina OSIS</h3>
+                      </div>
+                      <div class="crew-popup">
+                        <ul>
+                            <li>Arviana Wuri Widhiasi, M.Pd.</li>
+                            <li>Benidictus Setyo Santoso, S.Pd.</li>
+                            <li>Nikolas Wijaya, S.Pd.</li>
+                            <li>Catharina Dwiasih, S.Pd.</li>
+                            <li>Priyan Kristi Winarno, S.Sos.</li>
                         </ul>
                     </div>
                   </div>
@@ -751,6 +772,7 @@
                     </div>
                 </div>       
             </div>
+
             <div class="crew-group" id="division7">
                 <div class="crew-item">
                     <div class="pfp">
@@ -1170,6 +1192,11 @@
             });
         });
         });
+    </script>
+    <script>
+        function joinUs() {
+            window.location.href = 'join-us.html';
+        }
     </script>
 </body>
 </html>
