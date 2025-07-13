@@ -1,0 +1,375 @@
+{
+    "album": "photo-collection",
+    "images": [
+        {
+            "filename": "DSC03406.jpg",
+            "alt": "Photo 1",
+            "caption": "Photo 1"
+        },
+        {
+            "filename": "DSC03470 (1).jpg",
+            "alt": "Photo 2",
+            "caption": "Photo 2"
+        },
+        {
+            "filename": "DSC03477.jpg",
+            "alt": "Photo 3",
+            "caption": "Photo 3"
+        },
+        {
+            "filename": "DSC03492.jpg",
+            "alt": "Photo 4",
+            "caption": "Photo 4"
+        },
+        {
+            "filename": "DSC03516.jpg",
+            "alt": "Photo 5",
+            "caption": "Photo 5"
+        },
+        {
+            "filename": "DSC03528.jpg",
+            "alt": "Photo 6",
+            "caption": "Photo 6"
+        },
+        {
+            "filename": "DSC03541.jpg",
+            "alt": "Photo 7",
+            "caption": "Photo 7"
+        },
+        {
+            "filename": "DSC03545 (1).jpg",
+            "alt": "Photo 8",
+            "caption": "Photo 8"
+        },
+        {
+            "filename": "DSC03548.jpg",
+            "alt": "Photo 9",
+            "caption": "Photo 9"
+        },
+        {
+            "filename": "DSC03558.jpg",
+            "alt": "Photo 10",
+            "caption": "Photo 10"
+        },
+        {
+            "filename": "DSC03569.jpg",
+            "alt": "Photo 11",
+            "caption": "Photo 11"
+        },
+        {
+            "filename": "DSC03578.jpg",
+            "alt": "Photo 12",
+            "caption": "Photo 12"
+        },
+        {
+            "filename": "DSC03591.jpg",
+            "alt": "Photo 13",
+            "caption": "Photo 13"
+        },
+        {
+            "filename": "DSC03598.jpg",
+            "alt": "Photo 14",
+            "caption": "Photo 14"
+        },
+        {
+            "filename": "DSC03604.jpg",
+            "alt": "Photo 15",
+            "caption": "Photo 15"
+        },
+        {
+            "filename": "DSC03607.jpg",
+            "alt": "Photo 16",
+            "caption": "Photo 16"
+        },
+        {
+            "filename": "DSC03631.jpg",
+            "alt": "Photo 17",
+            "caption": "Photo 17"
+        },
+        {
+            "filename": "DSC03637.jpg",
+            "alt": "Photo 18",
+            "caption": "Photo 18"
+        },
+        {
+            "filename": "DSC03644.jpg",
+            "alt": "Photo 19",
+            "caption": "Photo 19"
+        },
+        {
+            "filename": "DSC03650.jpg",
+            "alt": "Photo 20",
+            "caption": "Photo 20"
+        },
+        {
+            "filename": "DSC03653.jpg",
+            "alt": "Photo 21",
+            "caption": "Photo 21"
+        },
+        {
+            "filename": "DSC03661.jpg",
+            "alt": "Photo 22",
+            "caption": "Photo 22"
+        },
+        {
+            "filename": "DSC03669.jpg",
+            "alt": "Photo 23",
+            "caption": "Photo 23"
+        },
+        {
+            "filename": "DSC03686.jpg",
+            "alt": "Photo 24",
+            "caption": "Photo 24"
+        },
+        {
+            "filename": "DSC03692.jpg",
+            "alt": "Photo 25",
+            "caption": "Photo 25"
+        },
+        {
+            "filename": "DSC03702.jpg",
+            "alt": "Photo 26",
+            "caption": "Photo 26"
+        },
+        {
+            "filename": "DSC03723.jpg",
+            "alt": "Photo 27",
+            "caption": "Photo 27"
+        },
+        {
+            "filename": "DSC03735.jpg",
+            "alt": "Photo 28",
+            "caption": "Photo 28"
+        },
+        {
+            "filename": "DSC03742.jpg",
+            "alt": "Photo 29",
+            "caption": "Photo 29"
+        },
+        {
+            "filename": "DSC03749.jpg",
+            "alt": "Photo 30",
+            "caption": "Photo 30"
+        },
+        {
+            "filename": "DSC03761.jpg",
+            "alt": "Photo 31",
+            "caption": "Photo 31"
+        },
+        {
+            "filename": "DSC03768.jpg",
+            "alt": "Photo 32",
+            "caption": "Photo 32"
+        },
+        {
+            "filename": "DSC03771.jpg",
+            "alt": "Photo 33",
+            "caption": "Photo 33"
+        },
+        {
+            "filename": "DSC03780.jpg",
+            "alt": "Photo 34",
+            "caption": "Photo 34"
+        },
+        {
+            "filename": "DSC03801.jpg",
+            "alt": "Photo 35",
+            "caption": "Photo 35"
+        },
+        {
+            "filename": "DSC03808.jpg",
+            "alt": "Photo 36",
+            "caption": "Photo 36"
+        },
+        {
+            "filename": "DSC_0028 (2).jpg",
+            "alt": "Photo 37",
+            "caption": "Photo 37"
+        },
+        {
+            "filename": "DSC_0037 (1).jpg",
+            "alt": "Photo 38",
+            "caption": "Photo 38"
+        },
+        {
+            "filename": "DSC_0047.jpg",
+            "alt": "Photo 39",
+            "caption": "Photo 39"
+        },
+        {
+            "filename": "DSC_0072.jpg",
+            "alt": "Photo 40",
+            "caption": "Photo 40"
+        },
+        {
+            "filename": "DSC_0086 (1) (1).jpg",
+            "alt": "Photo 41",
+            "caption": "Photo 41"
+        },
+        {
+            "filename": "DSC_0089.jpg",
+            "alt": "Photo 42",
+            "caption": "Photo 42"
+        },
+        {
+            "filename": "DSC_0118.jpg",
+            "alt": "Photo 43",
+            "caption": "Photo 43"
+        },
+        {
+            "filename": "DSC_0130 (1).jpg",
+            "alt": "Photo 44",
+            "caption": "Photo 44"
+        },
+        {
+            "filename": "DSC_0131 (1).jpg",
+            "alt": "Photo 45",
+            "caption": "Photo 45"
+        },
+        {
+            "filename": "DSC_0133.jpg",
+            "alt": "Photo 46",
+            "caption": "Photo 46"
+        },
+        {
+            "filename": "DSC_0134.jpg",
+            "alt": "Photo 47",
+            "caption": "Photo 47"
+        },
+        {
+            "filename": "DSC_0136.jpg",
+            "alt": "Photo 48",
+            "caption": "Photo 48"
+        },
+        {
+            "filename": "DSC_0138 (1).jpg",
+            "alt": "Photo 49",
+            "caption": "Photo 49"
+        },
+        {
+            "filename": "DSC_0141.jpg",
+            "alt": "Photo 50",
+            "caption": "Photo 50"
+        },
+        {
+            "filename": "DSC_0142.jpg",
+            "alt": "Photo 51",
+            "caption": "Photo 51"
+        },
+        {
+            "filename": "DSC_0144 (1).jpg",
+            "alt": "Photo 52",
+            "caption": "Photo 52"
+        },
+        {
+            "filename": "DSC_0145.jpg",
+            "alt": "Photo 53",
+            "caption": "Photo 53"
+        },
+        {
+            "filename": "DSC_0146.jpg",
+            "alt": "Photo 54",
+            "caption": "Photo 54"
+        },
+        {
+            "filename": "DSC_0150.jpg",
+            "alt": "Photo 55",
+            "caption": "Photo 55"
+        },
+        {
+            "filename": "DSC_0152.jpg",
+            "alt": "Photo 56",
+            "caption": "Photo 56"
+        },
+        {
+            "filename": "DSC_0153.jpg",
+            "alt": "Photo 57",
+            "caption": "Photo 57"
+        },
+        {
+            "filename": "DSC_0154.jpg",
+            "alt": "Photo 58",
+            "caption": "Photo 58"
+        },
+        {
+            "filename": "DSC_0155 (1).jpg",
+            "alt": "Photo 59",
+            "caption": "Photo 59"
+        },
+        {
+            "filename": "DSC_0158.jpg",
+            "alt": "Photo 60",
+            "caption": "Photo 60"
+        },
+        {
+            "filename": "DSC_0163.jpg",
+            "alt": "Photo 61",
+            "caption": "Photo 61"
+        },
+        {
+            "filename": "DSC_0169.jpg",
+            "alt": "Photo 62",
+            "caption": "Photo 62"
+        },
+        {
+            "filename": "DSC_0171.jpg",
+            "alt": "Photo 63",
+            "caption": "Photo 63"
+        },
+        {
+            "filename": "DSC_0172.jpg",
+            "alt": "Photo 64",
+            "caption": "Photo 64"
+        },
+        {
+            "filename": "DSC_0174.jpg",
+            "alt": "Photo 65",
+            "caption": "Photo 65"
+        },
+        {
+            "filename": "DSC_0179.jpg",
+            "alt": "Photo 66",
+            "caption": "Photo 66"
+        },
+        {
+            "filename": "DSC_0182 (2).jpg",
+            "alt": "Photo 67",
+            "caption": "Photo 67"
+        },
+        {
+            "filename": "DSC_0183 (1).jpg",
+            "alt": "Photo 68",
+            "caption": "Photo 68"
+        },
+        {
+            "filename": "DSC_0188 (1).jpg",
+            "alt": "Photo 69",
+            "caption": "Photo 69"
+        },
+        {
+            "filename": "DSC_0192.jpg",
+            "alt": "Photo 70",
+            "caption": "Photo 70"
+        },
+        {
+            "filename": "DSC_0193 (1).jpg",
+            "alt": "Photo 71",
+            "caption": "Photo 71"
+        },
+        {
+            "filename": "WhatsApp Image 2025-04-22 at 5.59.39 PM.jpg",
+            "alt": "Photo 72",
+            "caption": "Photo 72"
+        },
+        {
+            "filename": "WhatsApp Image 2025-04-22 at 5.59.41 PM.jpg",
+            "alt": "Photo 73",
+            "caption": "Photo 73"
+        },
+        {
+            "filename": "WhatsApp Image 2025-04-22 at 5.59.42 PM.jpg",
+            "alt": "Photo 74",
+            "caption": "Photo 74"
+        }
+    ]
+}

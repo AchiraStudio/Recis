@@ -1,248 +1,280 @@
 {
-    "album": "event-gallery",
+    "album": "photo-collection",
     "images": [
         {
-            "filename": "NAT_9761.jpg",
-            "alt": "Event photo 1"
+            "filename": "DSC05540.jpg",
+            "alt": "Photo 1",
+            "caption": "Photo 1"
         },
         {
-            "filename": "NAT_9763.jpg",
-            "alt": "Event photo 3"
+            "filename": "DSC05644.jpg",
+            "alt": "Photo 2",
+            "caption": "Photo 2"
         },
         {
-            "filename": "NAT_9766.jpg",
-            "alt": "Event photo 4"
-        },
-        {
-            "filename": "NAT_9800 (1).jpg",
-            "alt": "Event photo 5"
-        },
-        {
-            "filename": "NAT_9833.jpg",
-            "alt": "Event photo 6"
-        },
-        {
-            "filename": "NAT_9857.jpg",
-            "alt": "Event photo 7"
-        },
-        {
-            "filename": "NAT_9871.jpg",
-            "alt": "Event photo 8"
-        },
-        {
-            "filename": "NAT_9884.jpg",
-            "alt": "Event photo 9"
-        },
-        {
-            "filename": "NAT_9891.jpg",
-            "alt": "Event photo 10"
-        },
-        {
-            "filename": "NAT_9935.jpg",
-            "alt": "Event photo 11"
-        },
-        {
-            "filename": "NAT_9948.jpg",
-            "alt": "Event photo 12"
-        },
-        {
-            "filename": "VIN (11).jpg",
-            "alt": "Event photo 13"
-        },
-        {
-            "filename": "VIN (45).jpg",
-            "alt": "Event photo 14"
-        },
-        {
-            "filename": "VIN (52) - 1.jpg",
-            "alt": "Event photo 15"
-        },
-        {
-            "filename": "VIN (60).jpg",
-            "alt": "Event photo 16"
-        },
-        {
-            "filename": "VIN (80).jpg",
-            "alt": "Event photo 17"
-        },
-        {
-            "filename": "VIN (87).jpg",
-            "alt": "Event photo 18"
-        },
-        {
-            "filename": "VIN (91).jpg",
-            "alt": "Event photo 19"
-        },
-        {
-            "filename": "VIN (93).jpg",
-            "alt": "Event photo 20"
-        },
-        {
-            "filename": "VIN (139).jpg",
-            "alt": "Event photo 21"
-        },
-        {
-            "filename": "VIN (147).jpg",
-            "alt": "Event photo 22"
-        },
-        {
-            "filename": "VIN (156).jpg",
-            "alt": "Event photo 23"
-        },
-        {
-            "filename": "VIN (194).jpg",
-            "alt": "Event photo 24"
-        },
-        {
-            "filename": "VIN (237).jpg",
-            "alt": "Event photo 25"
-        },
-        {
-            "filename": "VIN (265).jpg",
-            "alt": "Event photo 26"
-        },
-        {
-            "filename": "VIN (286).jpg",
-            "alt": "Event photo 27"
-        },
-        {
-            "filename": "VIN (212).jpg",
-            "alt": "Event photo 28"
-        },
-        {
-            "filename": "DSC0540.jpg",
-            "alt": "Event photo 1",
-            "caption": "Opening ceremony"
-        },
-        {
-            "filename": "DSC0564.jpg",
-            "alt": "Event photo 2",
-            "caption": "Guest speaker"
-        },
-        {
-            "filename": "DSC0564 (2).jpg",
-            "alt": "Event photo 3",
-            "caption": "Audience interaction"
+            "filename": "DSC05664 (2).jpg",
+            "alt": "Photo 3",
+            "caption": "Photo 3"
         },
         {
             "filename": "IMG_0510.JPG",
-            "alt": "Event photo 4",
-            "caption": "Keynote presentation"
+            "alt": "Photo 4",
+            "caption": "Photo 4"
         },
         {
             "filename": "IMG_0512.JPG",
-            "alt": "Event photo 5",
-            "caption": "Panel discussion"
+            "alt": "Photo 5",
+            "caption": "Photo 5"
         },
         {
-            "filename": "IMG_0513.JPG",
-            "alt": "Event photo 6",
-            "caption": "Networking session"
+            "filename": "IMG_0515.JPG",
+            "alt": "Photo 6",
+            "caption": "Photo 6"
         },
         {
             "filename": "IMG_0520.JPG",
-            "alt": "Event photo 7",
-            "caption": "Award ceremony"
+            "alt": "Photo 7",
+            "caption": "Photo 7"
         },
         {
             "filename": "IMG_0522.JPG",
-            "alt": "Event photo 8",
-            "caption": "Group photo"
+            "alt": "Photo 8",
+            "caption": "Photo 8"
         },
         {
             "filename": "IMG_0524.JPG",
-            "alt": "Event photo 9",
-            "caption": "Workshop activity"
+            "alt": "Photo 9",
+            "caption": "Photo 9"
         },
         {
             "filename": "IMG_0525.JPG",
-            "alt": "Event photo 10",
-            "caption": "Exhibition booth"
+            "alt": "Photo 10",
+            "caption": "Photo 10"
         },
         {
             "filename": "IMG_0527.JPG",
-            "alt": "Event photo 11",
-            "caption": "Product demonstration"
+            "alt": "Photo 11",
+            "caption": "Photo 11"
         },
         {
             "filename": "IMG_0532.JPG",
-            "alt": "Event photo 12",
-            "caption": "Team building"
+            "alt": "Photo 12",
+            "caption": "Photo 12"
         },
         {
             "filename": "IMG_0534.JPG",
-            "alt": "Event photo 13",
-            "caption": "Closing remarks"
+            "alt": "Photo 13",
+            "caption": "Photo 13"
         },
         {
             "filename": "IMG_0535.JPG",
-            "alt": "Event photo 14",
-            "caption": "VIP attendees"
+            "alt": "Photo 14",
+            "caption": "Photo 14"
         },
         {
             "filename": "IMG_0537.JPG",
-            "alt": "Event photo 15",
-            "caption": "Stage performance"
+            "alt": "Photo 15",
+            "caption": "Photo 15"
         },
         {
             "filename": "IMG_0539.JPG",
-            "alt": "Event photo 16",
-            "caption": "Catering service"
+            "alt": "Photo 16",
+            "caption": "Photo 16"
         },
         {
             "filename": "IMG_0541.JPG",
-            "alt": "Event photo 17",
-            "caption": "Registration desk"
+            "alt": "Photo 17",
+            "caption": "Photo 17"
         },
         {
             "filename": "IMG_0544.JPG",
-            "alt": "Event photo 18",
-            "caption": "Technical setup"
+            "alt": "Photo 18",
+            "caption": "Photo 18"
         },
         {
             "filename": "IMG_0546.JPG",
-            "alt": "Event photo 19",
-            "caption": "Speaker preparation"
+            "alt": "Photo 19",
+            "caption": "Photo 19"
         },
         {
             "filename": "IMG_0548.JPG",
-            "alt": "Event photo 20",
-            "caption": "Venue overview"
+            "alt": "Photo 20",
+            "caption": "Photo 20"
         },
         {
-            "filename": "IMG_0577.JPG",
-            "alt": "Event photo 21",
-            "caption": "Closing ceremony"
+            "filename": "IMG_0557.JPG",
+            "alt": "Photo 21",
+            "caption": "Photo 21"
         },
         {
             "filename": "IMG_0558.JPG",
-            "alt": "Event photo 22",
-            "caption": "Interactive session"
+            "alt": "Photo 22",
+            "caption": "Photo 22"
         },
         {
             "filename": "IMG_0560.JPG",
-            "alt": "Event photo 23",
-            "caption": "Media coverage"
+            "alt": "Photo 23",
+            "caption": "Photo 23"
         },
         {
             "filename": "IMG_0562.JPG",
-            "alt": "Event photo 24",
-            "caption": "Sponsor recognition"
+            "alt": "Photo 24",
+            "caption": "Photo 24"
         },
         {
             "filename": "IMG_0563.JPG",
-            "alt": "Event photo 25",
-            "caption": "Audience Q&A"
+            "alt": "Photo 25",
+            "caption": "Photo 25"
         },
         {
             "filename": "IMG_0567.JPG",
-            "alt": "Event photo 26",
-            "caption": "Special announcement"
+            "alt": "Photo 26",
+            "caption": "Photo 26"
         },
         {
             "filename": "IMG_0572.JPG",
-            "alt": "Event photo 27",
-            "caption": "Final group photo"
+            "alt": "Photo 27",
+            "caption": "Photo 27"
+        },
+        {
+            "filename": "NAT_9747.jpg",
+            "alt": "Photo 28",
+            "caption": "Photo 28"
+        },
+        {
+            "filename": "NAT_9761.jpg",
+            "alt": "Photo 29",
+            "caption": "Photo 29"
+        },
+        {
+            "filename": "NAT_9763.jpg",
+            "alt": "Photo 30",
+            "caption": "Photo 30"
+        },
+        {
+            "filename": "NAT_9766.jpg",
+            "alt": "Photo 31",
+            "caption": "Photo 31"
+        },
+        {
+            "filename": "NAT_9800 (1).jpg",
+            "alt": "Photo 32",
+            "caption": "Photo 32"
+        },
+        {
+            "filename": "NAT_9833.jpg",
+            "alt": "Photo 33",
+            "caption": "Photo 33"
+        },
+        {
+            "filename": "NAT_9857.jpg",
+            "alt": "Photo 34",
+            "caption": "Photo 34"
+        },
+        {
+            "filename": "NAT_9871.jpg",
+            "alt": "Photo 35",
+            "caption": "Photo 35"
+        },
+        {
+            "filename": "NAT_9884.jpg",
+            "alt": "Photo 36",
+            "caption": "Photo 36"
+        },
+        {
+            "filename": "NAT_9891.jpg",
+            "alt": "Photo 37",
+            "caption": "Photo 37"
+        },
+        {
+            "filename": "NAT_9935.jpg",
+            "alt": "Photo 38",
+            "caption": "Photo 38"
+        },
+        {
+            "filename": "NAT_9948.jpg",
+            "alt": "Photo 39",
+            "caption": "Photo 39"
+        },
+        {
+            "filename": "VIN (11).jpg",
+            "alt": "Photo 40",
+            "caption": "Photo 40"
+        },
+        {
+            "filename": "VIN (139).jpg",
+            "alt": "Photo 41",
+            "caption": "Photo 41"
+        },
+        {
+            "filename": "VIN (147).jpg",
+            "alt": "Photo 42",
+            "caption": "Photo 42"
+        },
+        {
+            "filename": "VIN (156).jpg",
+            "alt": "Photo 43",
+            "caption": "Photo 43"
+        },
+        {
+            "filename": "VIN (194).jpg",
+            "alt": "Photo 44",
+            "caption": "Photo 44"
+        },
+        {
+            "filename": "VIN (237).jpg",
+            "alt": "Photo 45",
+            "caption": "Photo 45"
+        },
+        {
+            "filename": "VIN (265).jpg",
+            "alt": "Photo 46",
+            "caption": "Photo 46"
+        },
+        {
+            "filename": "VIN (286).jpg",
+            "alt": "Photo 47",
+            "caption": "Photo 47"
+        },
+        {
+            "filename": "VIN (312).jpg",
+            "alt": "Photo 48",
+            "caption": "Photo 48"
+        },
+        {
+            "filename": "VIN (45).jpg",
+            "alt": "Photo 49",
+            "caption": "Photo 49"
+        },
+        {
+            "filename": "VIN (52)-1.jpg",
+            "alt": "Photo 50",
+            "caption": "Photo 50"
+        },
+        {
+            "filename": "VIN (60).jpg",
+            "alt": "Photo 51",
+            "caption": "Photo 51"
+        },
+        {
+            "filename": "VIN (80).jpg",
+            "alt": "Photo 52",
+            "caption": "Photo 52"
+        },
+        {
+            "filename": "VIN (87).jpg",
+            "alt": "Photo 53",
+            "caption": "Photo 53"
+        },
+        {
+            "filename": "VIN (91).jpg",
+            "alt": "Photo 54",
+            "caption": "Photo 54"
+        },
+        {
+            "filename": "VIN (93).jpg",
+            "alt": "Photo 55",
+            "caption": "Photo 55"
         }
     ]
 }

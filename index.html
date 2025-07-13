@@ -274,7 +274,7 @@
             
                 <!-- Animated Button -->
                 <div class="button-slider easter-btn" onclick="window.open('events/easter.html', '_blank')">
-                    <span class="btn-text">Discover Events</span>
+                    <span class="btn-text">Easter Charity</span>
                     <span class="easter-icon">🐣</span>
                     <div class="sparkles">✨✨✨</div>
                 </div>
@@ -1018,13 +1018,13 @@
     <!-- Sidebar -->
      <script>
         document.addEventListener("DOMContentLoaded", function() {
-    const recisImage = document.getElementById("recis");
-    const sidebar = document.querySelector(".sidebar");
+        const recisImage = document.getElementById("recis");
+        const sidebar = document.querySelector(".sidebar");
 
-    recisImage.addEventListener("click", function() {
-        sidebar.classList.toggle("expanded"); // Toggle the 'expanded' class
-    });
-});
+            recisImage.addEventListener("click", function() {
+            sidebar.classList.toggle("expanded"); // Toggle the 'expanded' class
+            });
+        });
 
      </script>
      <!-- Different BG -->
@@ -1049,25 +1049,43 @@
 
      </script>
      <!-- AutoScroll -->
-     <script>
-        /// Get all the radio buttons
+    <script>
+        // Get all the radio buttons
         const slides = document.querySelectorAll('input[name="slider"]');
+
+        let autoSlideInterval;
 
         // Function to automatically switch slides
         function autoSlide() {
-        let currentSlide = document.querySelector('input[name="slider"]:checked');
-        let currentIndex = Array.from(slides).indexOf(currentSlide);
+            let currentSlide = document.querySelector('input[name="slider"]:checked');
+            let currentIndex = Array.from(slides).indexOf(currentSlide);
 
-        // Calculate the next slide index, looping back to 0 if we reach the end
-        let nextIndex = (currentIndex + 1) % slides.length;
+            // Calculate the next slide index, looping back to 0 if we reach the end
+            let nextIndex = (currentIndex + 1) % slides.length;
 
-        // Set the next radio button as checked to move to the next slide
-        slides[nextIndex].checked = true;
+            // Set the next radio button as checked to move to the next slide
+            slides[nextIndex].checked = true;
         }
 
-        // 10Detik scroll
-        setInterval(autoSlide, 10000);
-     </script>
+        // Function to start the auto slide timer
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(autoSlide, 10000); // 10 seconds
+        }
+
+        // Function to reset the timer (clears and starts again)
+        function resetAutoSlideTimer() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Attach event listeners to all slides to reset the timer on manual switch
+        slides.forEach(slide => {
+            slide.addEventListener('change', resetAutoSlideTimer);
+        });
+
+        // Start the initial auto-slide
+        startAutoSlide();
+    </script>
      <script src="dark-light.js"></script>
      <script src="welcome.js"></script>
     <script>

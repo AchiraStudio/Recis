@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easter Bunny Hop</title>
+    <link rel="stylesheet" href="style-easter.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+
+        .egg {
+            position: absolute;
+            pointer-events: none;
+            animation: float linear infinite;
+            bottom: -50px;
+            width: 30px;
+            height: 40px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(-100vh - 100px)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        :root {
+            --easter-pink: #FF9BB3;
+            --easter-purple: #D4A5E9;
+            --easter-blue: #A5D8E9;
+            --easter-yellow: #FFE8A5;
+            --easter-green: #B3E9A5;
+            --easter-dark: #6B4D57;
+        }
+        
+        .easter-player {
+            position: relative;
+            width: 320px;
+            background: linear-gradient(135deg, var(--easter-pink) 0%, var(--easter-purple) 100%);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(180, 112, 164, 0.3);
+            padding: 25px;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.5s ease;
+            border: 3px dashed white;
+        }
+
+        .easter-player::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 70%, transparent 100%);
+            z-index: -1;
+            animation: pulse 8s infinite alternate;
+        }
+        
+        .song-title {
+            font-family: 'Comic Neue', cursive;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0 var(--easter-dark);
+            transition: all 0.5s ease;
+        }
+        
+        .artist {
+            font-size: 14px;
+            color: white;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+        
+        .cover-art {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(107, 77, 87, 0.3);
+            margin: 0 auto 20px;
+            animation: bounce 4s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: all 0.3s;
+            text-shadow: 1px 1px 2px var(--easter-dark);
+        }
+        
+        .control-btn:hover {
+            transform: scale(1.2);
+            color: var(--easter-yellow);
+        }
+        
+        .play-btn {
+            background: white;
+            color: var(--easter-pink);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(107, 77, 87, 0.4);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .play-btn:hover {
+            background: var(--easter-yellow);
+            color: var(--easter-pink);
+        }
+        
+        .next-song-btn {
+            background: white;
+            color: var(--easter-pink);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(107, 77, 87, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .next-song-btn:hover {
+            background: var(--easter-yellow);
+            transform: scale(1.1);
+        }
+        
+        .progress-container {
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+            height: 6px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .progress {
+            background: white;
+            border-radius: 10px;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s linear, background 0.5s ease;
+        }
+        
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: white;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+            text-shadow: 1px 1px 1px var(--easter-dark);
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .volume-control i {
+            color: white;
+            margin-right: 10px;
+            transition: all 0.5s ease;
+            text-shadow: 1px 1px 1px var(--easter-dark);
+        }
+        
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.5);
+            border-radius: 2px;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        
+        .eggs-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .egg {
+            position: absolute;
+            opacity: 0;
+            animation: float-up 4s linear forwards;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        @keyframes float-up {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+        }
+        
+        /* Hide default audio controls */
+        #easter-audio {
+            display: none;
+        }
+
+        /* Bunny ears for the player */
+        .bunny-ears {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 60px;
+        }
+
+        .bunny-ear {
+            width: 30px;
+            height: 60px;
+            background: white;
+            border-radius: 50% 50% 0 0;
+            position: relative;
+        }
+
+        .bunny-ear::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background: var(--easter-pink);
+            border-radius: 50% 50% 0 0;
+            top: 10px;
+            left: 5px;
+        }
+
+        .bunny-ear.left {
+            transform: rotate(-15deg);
+        }
+
+        .bunny-ear.right {
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+    <header class="nav" id="nav">
+        <a href="../index.html" class="logo">R-SHS</a>
+
+        <nav>
+            <a href="#album">Album</a>
+        </nav>
+    </header>
+    <nav class="navbar">
+        <a href="#header" class="nav-item active">
+            <div class="nav-icon"><img src="../assets/main/home.png" alt=""></div>
+            <span>Home</span>
+        </a>
+        <a href="#main" class="nav-item">
+            <div class="nav-icon"><img src="../assets/main/gallery.png" alt=""></div>
+            <span>Album</span>
+        </a>
+        <a href="../index.html" class="nav-item">
+            <div class="nav-icon"><img src="../assets/main/header.png" alt=""></div>
+            <span>Main Page</span>
+        </a>
+    </nav>
+    <section id="header">
+        <div class="easter-player">
+            <div class="bunny-ears">
+                <div class="bunny-ear left"></div>
+                <div class="bunny-ear right"></div>
+            </div>
+            <div class="eggs-container" id="eggs-container"></div>
+            
+            <img src="../assets/albums/easter-charity/DSC_0118.jpg" alt="Easter Song Cover" class="cover-art" id="cover-art">
+            <h1 class="song-title" id="song-title">Aku Diberkati</h1>
+            <p class="artist" id="artist">-RSHS</p>
+            
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <div class="time-info">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            
+            <div class="controls">
+                <button class="control-btn" id="prev-btn" title="Previous Song"><i class="fas fa-step-backward"></i></button>
+                <button class="control-btn play-btn" id="play-btn" title="Play/Pause"><i class="fas fa-play"></i></button>
+                <button class="control-btn next-song-btn" id="next-btn" title="Next Song"><i class="fas fa-step-forward"></i></button>
+            </div>
+            
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+            </div>
+            
+            <audio id="easter-audio">
+                <source src="../assets/songs/aku-diberkati.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="about">
+            <div class="about-text">
+                <h1>What is Easter Charity?</h1>
+                <p>Lompat bersama kami, memberi hiburan, kesenangan, dan kenangan untuk semua. Filled with fun and laughter as we celebrate the season of renewal and joy!</p>
+            </div>
+        </div>
+        <div class="album" id="album">
+            <div class="content">
+                <!-- content images -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bg Song -->
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Song playlist
+        const songs = [
+            {
+                title: "Aku Diberkati",
+                artist: "-RSHS",
+                cover: "../assets/albums/easter-charity/DSC_0118.jpg",
+                source: "../assets/songs/aku-diberkati.mp3"
+            }
+        ];
+
+        const audio = document.getElementById('easter-audio');
+        const playBtn = document.getElementById('play-btn');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progress-container');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const volumeSlider = document.getElementById('volume-slider');
+        const eggsContainer = document.getElementById('eggs-container');
+        const coverArt = document.getElementById('cover-art');
+        const songTitle = document.getElementById('song-title');
+        const artist = document.getElementById('artist');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const player = document.querySelector('.easter-player');
+        
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        // Initialize player with first song
+        function loadSong(songIndex) {
+            const song = songs[songIndex];
+            songTitle.textContent = song.title;
+            artist.textContent = song.artist;
+            coverArt.src = song.cover;
+            audio.src = song.source;
+            
+            // Load the new song
+            audio.load();
+            
+            // If player was playing, continue playing
+            if (isPlaying) {
+                audio.play().then(() => {
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    startEggs();
+                });
+            }
+        }
+
+        // Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                startEggs();
+                isPlaying = true;
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                stopEggs();
+                isPlaying = false;
+            }
+        });
+        
+        // Update progress bar
+        audio.addEventListener('timeupdate', updateProgress);
+        
+        // Click on progress bar to seek
+        progressContainer.addEventListener('click', setProgress);
+        
+        // Volume control
+        volumeSlider.addEventListener('input', () => {
+            audio.volume = volumeSlider.value;
+        });
+        
+        // Update song time display
+        audio.addEventListener('timeupdate', updateTime);
+        
+        // When song ends, play next song
+        audio.addEventListener('ended', nextSong);
+        
+        // Previous song button
+        prevBtn.addEventListener('click', prevSong);
+        
+        // Next song button
+        nextBtn.addEventListener('click', nextSong);
+        
+        // Try to autoplay (may not work due to browser restrictions)
+        document.addEventListener('click', () => {
+            loadSong(currentSongIndex);
+            audio.play().then(() => {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                startEggs();
+                isPlaying = true;
+            }).catch(error => {
+                console.log("Autoplay prevented:", error);
+            });
+        }, { once: true });
+        
+        function updateProgress() {
+            const { duration, currentTime } = audio;
+            const progressPercent = (currentTime / duration) * 100;
+            progress.style.width = `${progressPercent}%`;
+        }
+        
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        }
+        
+        function updateTime() {
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+            currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+            
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60).toString().padStart(2, '0');
+            
+            if (durationSeconds) {
+                durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+            }
+        }
+        
+        // Play next song
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+            if (isPlaying) {
+                audio.play();
+            }
+        }
+        
+        // Play previous song
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+            if (isPlaying) {
+                audio.play();
+            }
+        }
+        
+        // Egg animation functions
+        let eggInterval;
+        
+        function startEggs() {
+            stopEggs(); // Clear any existing interval
+            
+            eggInterval = setInterval(() => {
+                createEgg();
+            }, 300);
+        }
+        
+        function stopEggs() {
+            clearInterval(eggInterval);
+        }
+        
+        function createEgg() {
+            const egg = document.createElement('div');
+            egg.classList.add('egg');
+            
+            // Easter egg colors
+            const colors = ['#FF9BB3', '#D4A5E9', '#A5D8E9', '#FFE8A5', '#B3E9A5', '#FFFFFF'];
+            const patterns = [
+                'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.5) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.5) 75%)',
+                'radial-gradient(circle, transparent 20%, rgba(255,255,255,0.5) 20%, rgba(255,255,255,0.5) 40%, transparent 40%)',
+                'linear-gradient(to right, transparent 33%, rgba(255,255,255,0.5) 33%, rgba(255,255,255,0.5) 66%, transparent 66%)'
+            ];
+            
+            // Random color and pattern
+            const bgColor = colors[Math.floor(Math.random() * colors.length)];
+            const pattern = Math.random() > 0.7 ? patterns[Math.floor(Math.random() * patterns.length)] : 'none';
+            
+            egg.style.background = `${pattern}, ${bgColor}`;
+            egg.style.backgroundSize = '20px 20px';
+            
+            // Random position at the bottom
+            egg.style.left = Math.random() * 100 + '%';
+            egg.style.bottom = '-20px';
+            
+            // Random size
+            const size = Math.random() * 20 + 15;
+            egg.style.width = size + 'px';
+            egg.style.height = (size * 1.3) + 'px';
+            
+            // Random animation duration
+            egg.style.animationDuration = Math.random() * 3 + 2 + 's';
+            
+            eggsContainer.appendChild(egg);
+            
+            // Remove egg after animation completes
+            setTimeout(() => {
+                egg.remove();
+            }, 4000);
+        }
+    </script>
+    <script src="gallery-easter.js"></script>
+    <script>
+        // Create infinite floating eggs
+        function createEggs() {
+            const colors = ['#FF9BB3', '#D4A5E9', '#A5D8E9', '#FFE8A5', '#B3E9A5', '#FFFFFF'];
+            
+            // Create eggs continuously
+            setInterval(() => {
+                const egg = document.createElement('div');
+                egg.classList.add('egg');
+                
+                const bgColor = colors[Math.floor(Math.random() * colors.length)];
+                egg.style.background = bgColor;
+                
+                egg.style.left = Math.random() * 100 + 'vw';
+                egg.style.width = (Math.random() * 30 + 15) + 'px';
+                egg.style.height = (Math.random() * 40 + 20) + 'px';
+                egg.style.opacity = Math.random() * 0.5 + 0.3;
+                egg.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                
+                document.body.appendChild(egg);
+                
+                // Remove egg after animation completes
+                setTimeout(() => {
+                    egg.remove();
+                }, parseFloat(egg.style.animationDuration) * 1000);
+            }, 300);
+        }
+        
+        // Call the function when the page loads
+        window.onload = createEggs;
+    </script>
+</body>
+</html>

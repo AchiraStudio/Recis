@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome RECIS Angkatan 70</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
         
         :root {
             --primary: #ff6b6b;
             --secondary: #4ecdc4;
             --accent: #ffe66d;
-            --dark: #121212;
+            --dark: #0a0a1a;
             --light: #f8f9fa;
+            --neon-pink: #ff2a6d;
+            --neon-blue: #05d9e8;
+            --neon-purple: #d300c5;
         }
         
         * {
@@ -43,408 +47,525 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
         
-        /* Welcome Section */
+        /* Welcome Section - Cyberpunk Style */
         .welcome-container {
             position: absolute;
             opacity: 0;
             transform: translateY(20px) scale(0.95);
             transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
             z-index: 10;
+            text-shadow: 0 0 10px var(--neon-blue);
+            filter: drop-shadow(0 0 15px var(--neon-pink));
         }
         
         .welcome-container.active {
             opacity: 1;
             transform: translateY(0) scale(1);
+            animation: neonGlow 2s infinite alternate;
+        }
+        
+        @keyframes neonGlow {
+            from {
+                text-shadow: 
+                    0 0 10px var(--neon-blue),
+                    0 0 20px var(--neon-pink),
+                    0 0 30px var(--neon-purple);
+            }
+            to {
+                text-shadow: 
+                    0 0 15px var(--neon-blue),
+                    0 0 25px var(--neon-pink),
+                    0 0 35px var(--neon-purple);
+            }
         }
         
         .main-text {
-            font-size: 4rem;
+            font-size: 5rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         
         .sub-text {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 300;
             margin-top: 1rem;
+            text-shadow: 0 0 5px var(--neon-blue);
         }
         
-        /* Message Section */
+        /* Message Section - Holographic Display */
         .message-container {
             position: absolute;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(30px) rotateX(45deg);
             transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
-            max-width: 700px;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            max-width: 800px;
+            padding: 40px;
+            background: linear-gradient(135deg, 
+                rgba(5, 217, 232, 0.1), 
+                rgba(255, 42, 109, 0.1));
+            backdrop-filter: blur(15px);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(5, 217, 232, 0.3);
+            box-shadow: 
+                0 0 30px rgba(5, 217, 232, 0.3),
+                inset 0 0 20px rgba(255, 42, 109, 0.3);
             z-index: 20;
+            transform-style: preserve-3d;
         }
         
         .message-container.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) rotateX(0);
+            animation: hologramPulse 3s infinite;
+        }
+        
+        @keyframes hologramPulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(5, 217, 232, 0.3),
+                    inset 0 0 20px rgba(255, 42, 109, 0.3);
+                border: 1px solid rgba(5, 217, 232, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 50px rgba(5, 217, 232, 0.5),
+                    inset 0 0 30px rgba(255, 42, 109, 0.5);
+                border: 1px solid rgba(5, 217, 232, 0.5);
+            }
         }
         
         .message-line {
             margin-bottom: 2rem;
-            font-size: 1.8rem;
+            font-size: 2rem;
             line-height: 1.5;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
         }
         
-        .message-line:nth-child(1) { color: var(--primary); }
-        .message-line:nth-child(2) { color: var(--secondary); }
-        .message-line:nth-child(3) { color: var(--accent); }
+        .message-line::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            transition: width 1s ease 0.5s;
+        }
         
         .message-line.active {
             opacity: 1;
             transform: translateY(0);
         }
         
-        /* Fireworks */
-        .firework {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
+        .message-line.active::after {
+            width: 100%;
         }
         
-        /* Floating Particles */
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.7;
+        .message-line:nth-child(1) { 
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.7);
+        }
+        .message-line:nth-child(2) { 
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(5, 217, 232, 0.7);
+        }
+        .message-line:nth-child(3) { 
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 230, 109, 0.7);
         }
         
-        /* Confetti */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        /* Glow Effects */
-        .glow {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.3;
-            z-index: -1;
-        }
-        
-        /* Background Stars */
-        .stars {
+        /* Cyber Grid Background */
+        .cyber-grid {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            background: 
+                linear-gradient(rgba(5, 217, 232, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(5, 217, 232, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: gridMove 20s linear infinite;
         }
         
-        .star {
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to { background-position: 50px 50px; }
+        }
+        
+        /* Binary Rain Effect */
+        .binary-rain {
             position: absolute;
-            background-color: white;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            width: 1em;
+            color: rgba(5, 217, 232, 0.7);
+            font-size: 18px;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(5, 217, 232, 0.5);
+            writing-mode: vertical-rl;
+            animation: binaryFall linear infinite;
+        }
+        
+        @keyframes binaryFall {
+            to { transform: translateY(150vh); }
+        }
+        
+        /* Cyber Orbs */
+        .cyber-orb {
+            position: absolute;
             border-radius: 50%;
-            animation: twinkle var(--duration) infinite ease-in-out;
+            filter: blur(30px);
+            opacity: 0.5;
+            z-index: -1;
+            animation: orbFloat 15s infinite ease-in-out;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 30px); }
+            50% { transform: translate(20px, 60px); }
+            75% { transform: translate(-30px, 40px); }
         }
         
-        /* Animations */
-        @keyframes shoot {
-            0% { transform: translateY(100vh); opacity: 1; }
-            100% { transform: translateY(var(--target-y)); opacity: 1; }
+        /* Cyber Lines */
+        .cyber-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+            transform-origin: left center;
+            z-index: -1;
+            animation: lineScan 3s infinite linear;
         }
         
-        @keyframes explode {
-            0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        @keyframes lineScan {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: 3rem;
+            }
+            
+            .sub-text {
+                font-size: 1.3rem;
+            }
+            
+            .message-container {
+                max-width: 90%;
+                padding: 20px;
+            }
+            
+            .message-line {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="scene">
-        <!-- Background Stars -->
-        <div class="stars" id="stars"></div>
+        <!-- Cyber Grid Background -->
+        <div class="cyber-grid"></div>
+        
+        <!-- Binary Rain Effect -->
+        <div class="binary-rain" id="binaryRain"></div>
+        
+        <!-- Cyber Orbs -->
+        <div id="cyberOrbs"></div>
+        
+        <!-- Cyber Lines -->
+        <div id="cyberLines"></div>
         
         <!-- Welcome Section -->
         <div class="welcome-container" id="welcome">
-            <div class="main-text">Welcome RECIS Angkatan 70</div>
-            <div class="sub-text">dan angkatan lainnya</div>
+            <div class="main-text animate__animated">Welcome RECIS Angkatan 70</div>
+            <div class="sub-text animate__animated">dan angkatan lainnya</div>
         </div>
         
         <!-- Message Section -->
         <div class="message-container" id="message">
             <div class="message-line" id="line1">Perjalanan baru menunggu kalian!</div>
-            <div class="message-line" id="line2">Ini tidak akan mudah, percayalah. Kaka kesusahan bgt di kurkum merdeka.</div>
+            <div class="message-line" id="line2">Ini tidak akan mudah, percayalah. Banyak hal yang menanti kita semua.</div>
             <div class="message-line" id="line3">Jaga diri, semangat belajar. Tunjukin kalau kita bisa.</div>
         </div>
     </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script>
-        // Initialize the scene
+        // Initialize the scene with enhanced effects
         document.addEventListener('DOMContentLoaded', () => {
-            createStars();
-            startAnimationSequence();
+            createBinaryRain();
+            createCyberOrbs();
+            createCyberLines();
+            startCyberAnimationSequence();
         });
         
-        // Create background stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 200;
+        // Create binary rain effect
+        function createBinaryRain() {
+            const binaryRain = document.getElementById('binaryRain');
+            const columns = Math.floor(window.innerWidth / 20);
             
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'binary-column';
                 
                 // Random properties
-                const size = Math.random() * 3;
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const duration = 2 + Math.random() * 3;
+                const left = Math.random() * window.innerWidth;
+                const delay = Math.random() * 5;
+                const duration = 10 + Math.random() * 10;
+                const characters = Math.floor(10 + Math.random() * 20);
                 
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
-                star.style.setProperty('--duration', `${duration}s`);
+                column.style.left = `${left}px`;
+                column.style.animationDuration = `${duration}s`;
+                column.style.animationDelay = `${delay}s`;
                 
-                // Random delay for twinkling
-                star.style.animationDelay = `${Math.random() * 5}s`;
+                // Generate random binary (with some 1s and 0s)
+                let binaryText = '';
+                for (let j = 0; j < characters; j++) {
+                    binaryText += Math.random() > 0.3 ? '1' : '0';
+                    binaryText += '<br>';
+                }
+                column.innerHTML = binaryText;
                 
-                starsContainer.appendChild(star);
+                binaryRain.appendChild(column);
             }
         }
         
-        // Main animation sequence
-        function startAnimationSequence() {
-            const welcome = document.getElementById('welcome');
-            const message = document.getElementById('message');
+        // Create floating cyber orbs
+        function createCyberOrbs() {
+            const cyberOrbs = document.getElementById('cyberOrbs');
+            const orbCount = 5;
+            const colors = ['rgba(255, 42, 109, 0.5)', 'rgba(5, 217, 232, 0.5)', 'rgba(211, 0, 197, 0.5)'];
             
-            // Show welcome after brief delay
-            setTimeout(() => {
-                welcome.classList.add('active');
+            for (let i = 0; i < orbCount; i++) {
+                const orb = document.createElement('div');
+                orb.className = 'cyber-orb';
                 
-                // Start floating particles
-                createFloatingParticles();
+                // Random properties
+                const size = 100 + Math.random() * 200;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const duration = 15 + Math.random() * 10;
+                const delay = Math.random() * 5;
                 
-                // After welcome is shown, transition to messages
-                setTimeout(() => {
-                    welcome.classList.remove('active');
-                    
-                    setTimeout(() => {
-                        message.classList.add('active');
-                        showMessages();
-                        startFireworks();
-                        createConfetti();
-                    }, 1000);
-                }, 4000);
-            }, 500);
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.backgroundColor = color;
+                orb.style.left = `${x}px`;
+                orb.style.top = `${y}px`;
+                orb.style.animationDuration = `${duration}s`;
+                orb.style.animationDelay = `${delay}s`;
+                
+                cyberOrbs.appendChild(orb);
+            }
         }
         
-        // Animate messages one by one
-        function showMessages() {
+        // Create scanning cyber lines
+        function createCyberLines() {
+            const cyberLines = document.getElementById('cyberLines');
+            const lineCount = 5;
+            
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.className = 'cyber-line';
+                
+                // Random properties
+                const width = 100 + Math.random() * window.innerWidth/2;
+                const top = Math.random() * window.innerHeight;
+                const delay = Math.random() * 3;
+                const duration = 2 + Math.random() * 3;
+                
+                line.style.width = `${width}px`;
+                line.style.top = `${top}px`;
+                line.style.left = `${Math.random() * (window.innerWidth - width)}px`;
+                line.style.animationDuration = `${duration}s`;
+                line.style.animationDelay = `${delay}s`;
+                
+                cyberLines.appendChild(line);
+            }
+        }
+        
+        // Main animation sequence with GSAP
+        function startCyberAnimationSequence() {
+            const welcome = document.getElementById('welcome');
+            const message = document.getElementById('message');
+            const mainText = document.querySelector('.main-text');
+            const subText = document.querySelector('.sub-text');
+            
+            // Initial animations
+            gsap.set([welcome, message], {visibility: 'visible'});
+            
+            // Welcome animation
+            gsap.to(welcome, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.5,
+                ease: "power3.out",
+                onComplete: () => {
+                    // Add animated class to text
+                    mainText.classList.add('animate__pulse');
+                    subText.classList.add('animate__pulse');
+                    
+                    // Start cyber effects
+                    startCyberPulse();
+                }
+            });
+            
+            // After welcome animation, transition to message
+            setTimeout(() => {
+                gsap.to(welcome, {
+                    opacity: 0,
+                    scale: 1.2,
+                    duration: 1,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        // Message animation
+                        gsap.to(message, {
+                            opacity: 1,
+                            y: 0,
+                            rotateX: 0,
+                            duration: 1.5,
+                            ease: "elastic.out(1, 0.5)",
+                            onComplete: showCyberMessages
+                        });
+                    }
+                });
+            }, 4000);
+        }
+        
+        // Cyber pulse effect for welcome text
+        function startCyberPulse() {
+            const mainText = document.querySelector('.main-text');
+            const subText = document.querySelector('.sub-text');
+            
+            setInterval(() => {
+                gsap.to(mainText, {
+                    scale: 1.05,
+                    duration: 1,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: "sine.inOut"
+                });
+                
+                gsap.to(subText, {
+                    scale: 1.03,
+                    duration: 1,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: "sine.inOut",
+                    delay: 0.2
+                });
+            }, 2000);
+        }
+        
+        // Show messages with cyber effects
+        function showCyberMessages() {
             const lines = document.querySelectorAll('.message-line');
             
             lines.forEach((line, index) => {
-                setTimeout(() => {
-                    line.classList.add('active');
-                    
-                    // Add glow effect for each line
-                    if (index === 0) {
-                        createGlowEffect(line, 'var(--primary)');
-                    } else if (index === 1) {
-                        createGlowEffect(line, 'var(--secondary)');
-                    } else {
-                        createGlowEffect(line, 'var(--accent)');
+                gsap.to(line, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: index * 1.5,
+                    ease: "back.out(1.7)",
+                    onStart: () => {
+                        // Add cyber line effect under each message
+                        createMessageCyberLine(line);
+                        
+                        // Add particle burst for each line
+                        if (index === 0) {
+                            createParticleBurst(line, 'var(--neon-pink)');
+                        } else if (index === 1) {
+                            createParticleBurst(line, 'var(--neon-blue)');
+                        } else {
+                            createParticleBurst(line, 'var(--accent)');
+                        }
                     }
-                }, index * 3500);
+                });
             });
             
             // Redirect after all animations
             setTimeout(() => {
-                window.location.href = "index.html"; // Change to your target URL
-            }, 14000);
-        }
-        
-        // Create floating particles around text
-        function createFloatingParticles() {
-            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ffffff'];
-            
-            for (let i = 0; i < 30; i++) {
-                setTimeout(() => {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    
-                    // Random properties
-                    const size = 2 + Math.random() * 4;
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    const x = 40 + Math.random() * 20;
-                    const y = 40 + Math.random() * 20;
-                    const duration = 10 + Math.random() * 10;
-                    
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    particle.style.backgroundColor = color;
-                    particle.style.left = `${x}%`;
-                    particle.style.top = `${y}%`;
-                    particle.style.animation = `float ${duration}s infinite ease-in-out`;
-                    particle.style.animationDelay = `${Math.random() * 5}s`;
-                    particle.style.opacity = 0.5 + Math.random() * 0.5;
-                    
-                    document.body.appendChild(particle);
-                    
-                    // Remove after animation
-                    setTimeout(() => {
-                        particle.remove();
-                    }, duration * 1000);
-                }, i * 300);
-            }
-        }
-        
-        // Create fireworks
-        function startFireworks() {
-            // Create multiple fireworks with delays
-            for (let i = 0; i < 25; i++) {
-                setTimeout(() => {
-                    createFirework();
-                }, i * 800);
-            }
-        }
-        
-        function createFirework() {
-            // Create shooting particle
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            
-            // Random color
-            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9ff3', '#feca57', '#1dd1a1'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            firework.style.backgroundColor = color;
-            
-            // Random position
-            const x = Math.random() * window.innerWidth;
-            firework.style.left = `${x}px`;
-            firework.style.bottom = '0';
-            
-            document.body.appendChild(firework);
-            
-            // Random target height (explosion point)
-            const targetY = 100 + Math.random() * (window.innerHeight - 200);
-            firework.style.setProperty('--target-y', `${targetY}px`);
-            
-            // Shoot animation
-            const shootDuration = 0.8 + Math.random() * 0.4;
-            firework.style.animation = `shoot ${shootDuration}s forwards cubic-bezier(0.1, 0.8, 0.2, 1)`;
-            
-            // Trail effect
-            createFireworkTrail(x, targetY, color, shootDuration);
-            
-            // Explode after reaching target
-            setTimeout(() => {
-                firework.remove();
-                createExplosion(x, targetY, color);
-            }, shootDuration * 1000);
-        }
-        
-        // Create firework trail
-        function createFireworkTrail(x, targetY, color, duration) {
-            const trailParticles = 10;
-            
-            for (let i = 0; i < trailParticles; i++) {
-                setTimeout(() => {
-                    const trail = document.createElement('div');
-                    trail.className = 'firework';
-                    
-                    trail.style.backgroundColor = color;
-                    trail.style.left = `${x}px`;
-                    trail.style.bottom = '0';
-                    trail.style.opacity = '0.7';
-                    trail.style.width = '3px';
-                    trail.style.height = '3px';
-                    
-                    // Calculate current position based on animation progress
-                    const progress = i / trailParticles;
-                    const currentY = progress * targetY;
-                    
-                    trail.style.transform = `translateY(${-currentY}px)`;
-                    trail.style.transition = `all ${duration * 0.5}s linear`;
-                    
-                    document.body.appendChild(trail);
-                    
-                    // Fade out trail
-                    setTimeout(() => {
-                        trail.style.opacity = '0';
-                        setTimeout(() => trail.remove(), 500);
-                    }, 100);
-                }, i * (duration * 1000 / trailParticles));
-            }
-        }
-        
-        // Create explosion effect
-        function createExplosion(x, y, color) {
-            const particleCount = 50 + Math.floor(Math.random() * 50);
-            
-            // Create glow effect at explosion center
-            const glow = document.createElement('div');
-            glow.className = 'glow';
-            glow.style.width = '100px';
-            glow.style.height = '100px';
-            glow.style.backgroundColor = color;
-            glow.style.left = `${x - 50}px`;
-            glow.style.top = `${y - 50}px`;
-            glow.style.transition = 'all 1s ease-out';
-            
-            document.body.appendChild(glow);
-            
-            // Expand and fade glow
-            setTimeout(() => {
-                glow.style.transform = 'scale(2)';
-                glow.style.opacity = '0';
+                // Create final mega burst before redirect
+                createMegaBurst();
                 
                 setTimeout(() => {
-                    glow.remove();
-                }, 1000);
-            }, 10);
+                    window.location.href = "index.html"; // Change to your target URL
+                }, 2000);
+            }, 8000);
+        }
+        
+        // Create cyber line effect under message
+        function createMessageCyberLine(element) {
+            const line = document.createElement('div');
+            line.className = 'cyber-line';
             
-            // Create explosion particles
+            const rect = element.getBoundingClientRect();
+            
+            line.style.width = `${rect.width}px`;
+            line.style.left = `${rect.left}px`;
+            line.style.top = `${rect.bottom + 5}px`;
+            line.style.animation = 'none';
+            line.style.transform = 'scaleX(0)';
+            line.style.transformOrigin = 'left center';
+            line.style.background = `linear-gradient(90deg, transparent, ${element.style.color || '#fff'}, transparent)`;
+            
+            document.body.appendChild(line);
+            
+            gsap.to(line, {
+                scaleX: 1,
+                duration: 1,
+                ease: "power2.out",
+                onComplete: () => {
+                    gsap.to(line, {
+                        opacity: 0,
+                        duration: 0.5,
+                        delay: 1,
+                        onComplete: () => line.remove()
+                    });
+                }
+            });
+        }
+        
+        // Create particle burst effect
+        function createParticleBurst(element, color) {
+            const particleCount = 50;
+            const rect = element.getBoundingClientRect();
+            const centerX = rect.left + rect.width/2;
+            const centerY = rect.top + rect.height/2;
+            
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
-                particle.className = 'firework';
+                particle.className = 'particle';
                 
                 // Random properties
                 const size = 2 + Math.random() * 4;
@@ -454,91 +575,112 @@
                 const ty = Math.sin(angle) * distance;
                 const duration = 0.8 + Math.random() * 0.5;
                 
-                particle.style.backgroundColor = color;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                particle.style.left = `${x}px`;
-                particle.style.top = `${y}px`;
-                particle.style.setProperty('--tx', `${tx}px`);
-                particle.style.setProperty('--ty', `${ty}px`);
-                particle.style.animation = `explode ${duration}s forwards cubic-bezier(0.1, 0.2, 0.8, 1)`;
+                particle.style.backgroundColor = color;
+                particle.style.borderRadius = '50%';
+                particle.style.position = 'fixed';
+                particle.style.left = `${centerX}px`;
+                particle.style.top = `${centerY}px`;
+                particle.style.pointerEvents = 'none';
+                particle.style.opacity = '0';
                 
                 document.body.appendChild(particle);
                 
-                // Remove after animation
-                setTimeout(() => {
-                    particle.remove();
-                }, duration * 1000);
+                // Animate with GSAP
+                gsap.to(particle, {
+                    x: tx,
+                    y: ty,
+                    opacity: 1,
+                    duration: duration * 0.3,
+                    ease: "power2.out"
+                });
+                
+                gsap.to(particle, {
+                    opacity: 0,
+                    duration: duration * 0.7,
+                    delay: duration * 0.3,
+                    onComplete: () => particle.remove()
+                });
             }
         }
         
-        // Create confetti effect
-        function createConfetti() {
-            const confettiCount = 150;
-            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff9ff3', '#feca57', '#1dd1a1'];
+        // Create final mega burst effect
+        function createMegaBurst() {
+            const particleCount = 200;
+            const centerX = window.innerWidth/2;
+            const centerY = window.innerHeight/2;
+            const colors = ['var(--neon-pink)', 'var(--neon-blue)', 'var(--neon-purple)', 'var(--accent)'];
             
-            for (let i = 0; i < confettiCount; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    
-                    // Random properties
-                    const size = 5 + Math.random() * 10;
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    const x = Math.random() * window.innerWidth;
-                    const duration = 3 + Math.random() * 4;
-                    const delay = Math.random() * 5;
-                    
-                    confetti.style.width = `${size}px`;
-                    confetti.style.height = `${size}px`;
-                    confetti.style.backgroundColor = color;
-                    confetti.style.left = `${x}px`;
-                    confetti.style.top = `-10px`;
-                    confetti.style.animation = `confetti-fall ${duration}s linear ${delay}s forwards`;
-                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                    
-                    document.body.appendChild(confetti);
-                    
-                    // Remove after animation
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, (duration + delay) * 1000);
-                }, i * 100);
+            // Create flash effect
+            const flash = document.createElement('div');
+            flash.style.position = 'fixed';
+            flash.style.top = '0';
+            flash.style.left = '0';
+            flash.style.width = '100%';
+            flash.style.height = '100%';
+            flash.style.backgroundColor = '#fff';
+            flash.style.opacity = '0';
+            flash.style.zIndex = '100';
+            flash.style.pointerEvents = 'none';
+            document.body.appendChild(flash);
+            
+            gsap.to(flash, {
+                opacity: 0.8,
+                duration: 0.1,
+                onComplete: () => {
+                    gsap.to(flash, {
+                        opacity: 0,
+                        duration: 0.5,
+                        onComplete: () => flash.remove()
+                    });
+                }
+            });
+            
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random properties
+                const size = 3 + Math.random() * 7;
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 300;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const duration = 1 + Math.random();
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
+                particle.style.borderRadius = '50%';
+                particle.style.position = 'fixed';
+                particle.style.left = `${centerX}px`;
+                particle.style.top = `${centerY}px`;
+                particle.style.pointerEvents = 'none';
+                particle.style.opacity = '0';
+                particle.style.filter = 'blur(1px)';
+                particle.style.boxShadow = `0 0 ${size*2}px ${size}px ${color}`;
+                
+                document.body.appendChild(particle);
+                
+                // Animate with GSAP
+                gsap.to(particle, {
+                    x: tx,
+                    y: ty,
+                    opacity: 1,
+                    duration: duration * 0.3,
+                    ease: "power2.out"
+                });
+                
+                gsap.to(particle, {
+                    opacity: 0,
+                    duration: duration * 0.7,
+                    delay: duration * 0.3,
+                    onComplete: () => particle.remove()
+                });
             }
-        }
-        
-        // Create glow effect behind text
-        function createGlowEffect(element, color) {
-            const rect = element.getBoundingClientRect();
-            const glow = document.createElement('div');
-            glow.className = 'glow';
-            
-            glow.style.width = `${rect.width + 100}px`;
-            glow.style.height = `${rect.height + 50}px`;
-            glow.style.backgroundColor = color;
-            glow.style.left = `${rect.left - 50 + window.scrollX}px`;
-            glow.style.top = `${rect.top - 25 + window.scrollY}px`;
-            glow.style.opacity = '0';
-            glow.style.transition = 'opacity 1s ease-out';
-            
-            document.body.appendChild(glow);
-            
-            // Fade in
-            setTimeout(() => {
-                glow.style.opacity = '0.3';
-            }, 10);
-            
-            // Pulse animation
-            setInterval(() => {
-                glow.style.transform = `scale(${1 + Math.random() * 0.1})`;
-            }, 2000);
-            
-            // Remove after text disappears
-            setTimeout(() => {
-                glow.style.opacity = '0';
-                setTimeout(() => glow.remove(), 1000);
-            }, 5000);
         }
     </script>
 </body>
